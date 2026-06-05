@@ -310,6 +310,7 @@ function themeForGrade(grade) {
 
 function defaultDisplay(product) {
   return {
+    subjectScope: product.tag || "非文综",
     courseBandTitle: "每科课程包含",
     noteLabel: "说明",
     giftText: "报名赠送多个礼品",
@@ -373,6 +374,7 @@ function normalizeCatalog(products) {
         ? product.extraNotes
         : String(product.extraNotes || "").split("\n").map((note) => note.trim()).filter(Boolean);
       product.display = {
+        subjectScope: savedDisplay.subjectScope || display.subjectScope,
         courseBandTitle: savedDisplay.courseBandTitle || display.courseBandTitle,
         noteLabel: savedDisplay.noteLabel || display.noteLabel,
         giftText: savedDisplay.giftText || display.giftText
@@ -944,6 +946,7 @@ function hydrateEditor(product) {
   getEl("wenzongLiveGift").value = wenZongModules[1]?.gift || "";
   getEl("wenzongServiceHours").value = wenZongModules[2]?.hours || "";
   getEl("wenzongServiceGift").value = wenZongModules[2]?.gift || "";
+  getEl("editSubjectScope").value = product.display?.subjectScope || defaultDisplay(product).subjectScope;
   getEl("editCourseBand").value = product.display?.courseBandTitle || defaultDisplay(product).courseBandTitle;
   getEl("editNoteLabel").value = product.display?.noteLabel || defaultDisplay(product).noteLabel;
   getEl("editGiftText").value = product.display?.giftText || defaultDisplay(product).giftText;
@@ -995,6 +998,7 @@ function saveEditor() {
   product.content.nonWenZong = modulesFromEditor("nonWenZong");
   product.content.wenZong = modulesFromEditor("wenZong");
   product.display = {
+    subjectScope: getEl("editSubjectScope").value.trim() || product.tag || "非文综",
     courseBandTitle: getEl("editCourseBand").value.trim() || "每科课程包含",
     noteLabel: getEl("editNoteLabel").value.trim() || "说明",
     giftText: getEl("editGiftText").value.trim() || "报名赠送多个礼品"
@@ -1026,10 +1030,11 @@ function render() {
   const titleSuffix = isWenZongMode
     ? "文综科目价格体系"
     : "价格体系";
+  const subjectScope = product.display?.subjectScope || product.tag || "非文综";
 
   getEl("pricePoster").className = `price-poster theme-${product.theme || "warm"}`;
   getEl("posterTitle").innerHTML = `${product.name}<br />${titleSuffix}`;
-  getEl("posterSubtitle").textContent = `${product.grade}｜${product.subtitle}｜${tagText}`;
+  getEl("posterSubtitle").textContent = `${product.grade}｜${product.subtitle}｜${subjectScope}`;
   getEl("posterTag").textContent = tagText;
   getEl("productHint").textContent = productPricingHint(product);
   getEl("heroCardLabel").textContent = cardLabelForProduct(product);
@@ -1206,6 +1211,7 @@ function createBlankProduct() {
     },
     servicePeriod: "",
     display: {
+      subjectScope: "非文综",
       courseBandTitle: "每科课程包含",
       noteLabel: "说明",
       giftText: "报名赠送多个礼品"
