@@ -837,6 +837,30 @@ function buildNotes(product) {
   return product.notes?.length ? product.notes : defaultDisplay(product).notes;
 }
 
+function posterTagForQuote(product) {
+  if (state.quoteMode === "wenZong") return "文综";
+  if (state.quoteMode === "combo") return "文综组合";
+  return product.tag || "非文综";
+}
+
+function posterTitleSuffixForQuote() {
+  if (state.quoteMode === "wenZong") return "文综科目价格体系";
+  if (state.quoteMode === "combo") return "文综组合价格体系";
+  return "价格体系";
+}
+
+function posterSubjectScopeForQuote(product) {
+  if (state.quoteMode === "wenZong") return "文综";
+  if (state.quoteMode === "combo") {
+    const quote = buildComboQuote(product);
+    const parts = [];
+    if (quote?.nonCount) parts.push(`非文综${quote.nonCount}科`);
+    if (quote?.wenCount) parts.push(`文综${quote.wenCount}科`);
+    return parts.length ? parts.join("+") : "文综组合";
+  }
+  return product.display?.subjectScope || product.tag || "非文综";
+}
+
 function renderNotes(notes) {
   getEl("notesList").innerHTML = notes.map((note) => `<li>${escapeHtml(note)}</li>`).join("");
 }
@@ -1024,13 +1048,9 @@ function render() {
   const rows = buildRows(product);
   const output = buildOutput(product, rows);
   const isWenZongMode = state.quoteMode === "wenZong";
-  const tagText = isWenZongMode
-    ? "文综"
-    : product.tag || "非文综";
-  const titleSuffix = isWenZongMode
-    ? "文综科目价格体系"
-    : "价格体系";
-  const subjectScope = product.display?.subjectScope || product.tag || "非文综";
+  const tagText = posterTagForQuote(product);
+  const titleSuffix = posterTitleSuffixForQuote();
+  const subjectScope = posterSubjectScopeForQuote(product);
 
   getEl("pricePoster").className = `price-poster theme-${product.theme || "warm"}`;
   getEl("posterTitle").innerHTML = `${product.name}<br />${titleSuffix}`;
