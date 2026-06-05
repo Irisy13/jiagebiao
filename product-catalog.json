@@ -1,0 +1,304 @@
+{
+  "version": "2026-06-03-v3",
+  "gradeEntrances": [
+    {
+      "grade": "高一",
+      "theme": "peach",
+      "colorName": "粉橘色"
+    },
+    {
+      "grade": "高二",
+      "theme": "blue",
+      "colorName": "蓝色"
+    },
+    {
+      "grade": "高三",
+      "theme": "purple",
+      "colorName": "紫色"
+    }
+  ],
+  "access": {
+    "adminLocked": true,
+    "salesEditableFields": [
+      "product",
+      "displayRange"
+    ]
+  },
+  "pricingRule": "1科用单科价，2科用两科价，3-6科统一使用三科及以上价/科；优惠券=官网总价-支付价格。",
+  "products": [
+    {
+      "id": "new-g1-bridge",
+      "grade": "高一",
+      "family": "初高衔接卡",
+      "level": "便宜班型",
+      "name": "初高升学领航卡",
+      "subtitle": "初高衔接",
+      "tag": "语数英物化生",
+      "theme": "peach",
+      "nonWenZong": {
+        "officialUnitPrice": 2800,
+        "tiers": {
+          "1": 2398,
+          "2": 2098,
+          "3": 1698
+        }
+      },
+      "content": {
+        "nonWenZong": [
+          {
+            "module": "学法直播",
+            "badge": "讲到会",
+            "label": "学法直播",
+            "subtitle": "初高衔接",
+            "hours": "15节",
+            "gift": "初三冲刺5节+新高一暑假10节"
+          },
+          {
+            "module": "伴学服务",
+            "badge": "陪伴学",
+            "label": "规划服务",
+            "subtitle": "伴学提升",
+            "hours": "2026.4.27-2026.8.31",
+            "gift": ""
+          }
+        ]
+      },
+      "servicePeriod": "2026.4.27-2026.8.31"
+    },
+    {
+      "id": "new-g1-win",
+      "grade": "高一",
+      "family": "高一暑秋卡",
+      "level": "贵版型",
+      "name": "新高一全体系决胜卡",
+      "subtitle": "暑秋",
+      "tag": "非文综",
+      "theme": "peach",
+      "nonWenZong": {
+        "officialUnitPrice": 6400,
+        "tiers": {
+          "1": 3880,
+          "2": 3580,
+          "3": 3280
+        }
+      },
+      "content": {
+        "nonWenZong": [
+          {
+            "module": "知识视频",
+            "badge": "精准学",
+            "label": "知识视频",
+            "subtitle": "查缺补漏",
+            "hours": "40节",
+            "gift": "秋40节"
+          },
+          {
+            "module": "学法直播",
+            "badge": "讲到会",
+            "label": "学法直播",
+            "subtitle": "大招提分",
+            "hours": "26节",
+            "gift": "暑10节+秋16节"
+          },
+          {
+            "module": "伴学服务",
+            "badge": "陪伴学",
+            "label": "规划服务",
+            "subtitle": "伴学提升",
+            "hours": "6个月辅导老师服务",
+            "gift": ""
+          }
+        ]
+      },
+      "servicePeriod": "2026.7.1-2026.12.31"
+    },
+    {
+      "id": "g1-full-through",
+      "grade": "高二",
+      "family": "高二全程班",
+      "level": "贵版型",
+      "name": "直通高二全程班",
+      "subtitle": "春mini+暑秋半年卡",
+      "tag": "非文综",
+      "theme": "blue",
+      "nonWenZong": {
+        "officialUnitPrice": 7400,
+        "tiers": {
+          "1": 5580,
+          "2": 5280,
+          "3": 4880
+        }
+      },
+      "content": {
+        "nonWenZong": [
+          {
+            "module": "知识视频",
+            "badge": "精准学",
+            "label": "知识视频",
+            "subtitle": "查缺补漏",
+            "hours": "65节",
+            "gift": "春mini25节+秋40节"
+          },
+          {
+            "module": "学法直播",
+            "badge": "讲到会",
+            "label": "学法直播",
+            "subtitle": "大招提分",
+            "hours": "33节",
+            "gift": "春mini7节+暑秋26节"
+          },
+          {
+            "module": "伴学服务",
+            "badge": "陪伴学",
+            "label": "规划服务",
+            "subtitle": "伴学提升",
+            "hours": "8个月辅导老师服务",
+            "gift": ""
+          }
+        ]
+      },
+      "servicePeriod": "2026.5.1-2026.12.31"
+    },
+    {
+      "id": "g1-half-win",
+      "grade": "高二",
+      "family": "高一半年卡",
+      "level": "便宜班型",
+      "name": "新高一全体系决胜卡",
+      "subtitle": "暑秋半年卡",
+      "tag": "非文综",
+      "theme": "blue",
+      "nonWenZong": {
+        "officialUnitPrice": 5600,
+        "tiers": {
+          "1": 4180,
+          "2": 3980,
+          "3": 3680
+        }
+      },
+      "content": {
+        "nonWenZong": [
+          {
+            "module": "知识视频",
+            "badge": "精准学",
+            "label": "知识视频",
+            "subtitle": "查缺补漏",
+            "hours": "40节",
+            "gift": "秋40节"
+          },
+          {
+            "module": "学法直播",
+            "badge": "讲到会",
+            "label": "学法直播",
+            "subtitle": "大招提分",
+            "hours": "26节",
+            "gift": "暑10节+秋16节"
+          },
+          {
+            "module": "伴学服务",
+            "badge": "陪伴学",
+            "label": "规划服务",
+            "subtitle": "伴学提升",
+            "hours": "6个月辅导老师服务",
+            "gift": ""
+          }
+        ]
+      },
+      "servicePeriod": "2026.7.1-2026.12.31"
+    },
+    {
+      "id": "g2-round-early",
+      "grade": "高三",
+      "family": "一轮卡",
+      "level": "便宜班型",
+      "name": "一轮卡-早鸟价",
+      "subtitle": "26H2一轮卡",
+      "tag": "非文综",
+      "theme": "purple",
+      "nonWenZong": {
+        "officialUnitPrice": 5600,
+        "tiers": {
+          "1": 5180,
+          "2": 4980,
+          "3": 4680
+        }
+      },
+      "content": {
+        "nonWenZong": [
+          {
+            "module": "知识视频",
+            "badge": "精准学",
+            "label": "知识视频",
+            "subtitle": "查缺补漏",
+            "hours": "60节",
+            "gift": "新高三一轮卡60节"
+          },
+          {
+            "module": "学法直播",
+            "badge": "讲到会",
+            "label": "学法直播",
+            "subtitle": "大招提分",
+            "hours": "26节",
+            "gift": "新高三一轮卡26节"
+          },
+          {
+            "module": "伴学服务",
+            "badge": "陪伴学",
+            "label": "规划服务",
+            "subtitle": "伴学提升",
+            "hours": "6个月辅导老师服务",
+            "gift": ""
+          }
+        ]
+      },
+      "servicePeriod": "2026-07-01至2026-12-31"
+    },
+    {
+      "id": "g2-round-full",
+      "grade": "高三",
+      "family": "一轮全程班",
+      "level": "贵版型",
+      "name": "直通一轮全程班",
+      "subtitle": "春mini+一轮",
+      "tag": "非文综",
+      "theme": "purple",
+      "nonWenZong": {
+        "officialUnitPrice": 7400,
+        "tiers": {
+          "1": 6580,
+          "2": 6280,
+          "3": 5880
+        }
+      },
+      "content": {
+        "nonWenZong": [
+          {
+            "module": "知识视频",
+            "badge": "精准学",
+            "label": "知识视频",
+            "subtitle": "查缺补漏",
+            "hours": "85节",
+            "gift": "春mini25节+一轮60节"
+          },
+          {
+            "module": "学法直播",
+            "badge": "讲到会",
+            "label": "学法直播",
+            "subtitle": "大招提分",
+            "hours": "33节",
+            "gift": "春7节+一轮26节"
+          },
+          {
+            "module": "伴学服务",
+            "badge": "陪伴学",
+            "label": "规划服务",
+            "subtitle": "伴学提升",
+            "hours": "8个月辅导老师服务",
+            "gift": ""
+          }
+        ]
+      },
+      "servicePeriod": "2026.5.1-2026.12.31"
+    }
+  ]
+}

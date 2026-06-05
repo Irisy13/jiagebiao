@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>教育产品报价工作台</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="studio-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">有道领世 · 价格体系</p>
+          <h1>教育产品报价工作台</h1>
+          <p class="topbar-copy">管理员维护产品与价格，销售只选择产品和多科展示范围。</p>
+        </div>
+        <div class="topbar-actions">
+          <div class="trust-strip" aria-label="权限说明">
+            <span><i class="mini-lock"></i>管理员数据锁定</span>
+            <span>销售只读报价</span>
+            <span>自动计算优惠</span>
+          </div>
+          <button id="backendToggle" type="button" class="backend-entry">
+            <span class="mini-lock"></span>
+            后台
+          </button>
+        </div>
+      </header>
+
+      <section class="admin-backstage" id="adminCard" hidden>
+        <div class="admin-backstage-head">
+          <div>
+            <p class="eyebrow">后台维护</p>
+            <h2>管理员维护台</h2>
+            <p>上传、编辑产品名称、课时量与价格。默认锁定，销售不可编辑。</p>
+          </div>
+          <button id="backendClose" type="button" class="ghost-button">收起后台</button>
+        </div>
+
+        <div id="lockView" class="lock-view">
+          <label class="select-label">
+            管理员密钥
+            <input id="adminCode" type="password" placeholder="输入密钥后解锁编辑" />
+          </label>
+          <button id="unlockAdmin" type="button" class="primary-button">解锁维护台</button>
+          <p class="locked-tip">未解锁时，页面不会显示任何价格编辑入口。</p>
+        </div>
+
+        <div id="adminEditor" class="admin-editor" hidden>
+          <div class="admin-command-center">
+            <div class="admin-toolbar">
+              <label class="select-label admin-product-field">
+                选择要维护的产品
+                <select id="adminProductSelect"></select>
+              </label>
+              <label class="status-switch">
+                <input id="editOnline" type="checkbox" />
+                <span>产品上线</span>
+                <em>关闭后销售端不可见</em>
+              </label>
+            </div>
+
+            <div class="admin-actions">
+              <button id="addProduct" type="button" class="primary-button">新增产品</button>
+              <button id="saveCatalog" type="button" class="primary-button">保存当前编辑</button>
+              <label class="upload-button">
+                上传产品 JSON
+                <input id="catalogUpload" type="file" accept="application/json,.json" />
+              </label>
+              <button id="deleteProduct" type="button" class="danger-button">删除当前产品</button>
+              <button id="resetCatalog" type="button" class="ghost-button">恢复默认</button>
+            </div>
+          </div>
+
+          <div class="admin-fieldset admin-basic">
+            <div class="admin-fieldset-title">
+              <span>基础信息</span>
+              <p>销售端只展示产品标题名称，其他内容用于价格表生成。</p>
+            </div>
+            <div class="editor-grid">
+              <label>产品名称<input id="editName" type="text" /></label>
+              <label>副标题<input id="editSubtitle" type="text" /></label>
+              <label>年级<input id="editGrade" type="text" /></label>
+              <label>卡型<input id="editFamily" type="text" /></label>
+              <label>班型<input id="editLevel" type="text" /></label>
+              <label>服务期<input id="editService" type="text" /></label>
+            </div>
+          </div>
+
+          <div class="admin-fieldset admin-price">
+            <div class="admin-fieldset-title">
+              <span>价格规则</span>
+              <p>三科、四科、五科、六科统一使用“三科及以上价/科”。</p>
+            </div>
+            <div class="editor-grid price-editor-grid">
+              <label>官网价/科<input id="editOfficial" type="number" min="0" /></label>
+              <label>单科价<input id="editTier1" type="number" min="0" /></label>
+              <label>两科价/科<input id="editTier2" type="number" min="0" /></label>
+              <label>三科及以上价/科<input id="editTier3" type="number" min="0" /></label>
+            </div>
+          </div>
+
+          <div class="admin-fieldset admin-wenzong">
+            <div class="admin-fieldset-title">
+              <span>文综价格</span>
+              <p>一口价产品会单独生成文综价格表，也用于组合报价。</p>
+            </div>
+            <div class="editor-grid price-editor-grid">
+              <label>
+                文综状态
+                <select id="editWenZongMode">
+                  <option value="none">无文综</option>
+                  <option value="same">文综与非文综同价</option>
+                  <option value="deal">文综一口价</option>
+                </select>
+              </label>
+              <label>文综官网原价/科<input id="editWenZongOfficial" type="number" min="0" /></label>
+              <label>文综一口价/科<input id="editWenZongDeal" type="number" min="0" /></label>
+            </div>
+          </div>
+
+          <div class="admin-fieldset admin-course">
+            <div class="admin-fieldset-title">
+              <span>非文综课程包含</span>
+              <p>三类模块独立维护课时量与赠送内容，价格表会自动同步展示。</p>
+            </div>
+            <div class="module-editor-grid">
+              <article class="module-editor-card module-editor-knowledge">
+                <strong>知识视频</strong>
+                <label>课时量<input id="knowledgeHours" type="text" placeholder="例如：65节(30min/讲)" /></label>
+                <label>赠送内容<input id="knowledgeGift" type="text" placeholder="例如：加赠15节" /></label>
+              </article>
+              <article class="module-editor-card module-editor-live">
+                <strong>学法直播</strong>
+                <label>课时量<input id="liveHours" type="text" placeholder="例如：33讲(2h/讲)" /></label>
+                <label>赠送内容<input id="liveGift" type="text" placeholder="例如：加赠9讲" /></label>
+              </article>
+              <article class="module-editor-card module-editor-service">
+                <strong>辅导服务</strong>
+                <label>课时量<input id="serviceHours" type="text" placeholder="例如：8个月辅导老师服务" /></label>
+                <label>赠送内容<input id="serviceGift" type="text" placeholder="可留空" /></label>
+              </article>
+            </div>
+          </div>
+
+          <div class="admin-fieldset admin-course admin-course-wenzong">
+            <div class="admin-fieldset-title">
+              <span>文综课程包含</span>
+              <p>如文综课时与非文综不同，可在这里单独维护；留空的模块不会展示。</p>
+            </div>
+            <div class="module-editor-grid">
+              <article class="module-editor-card module-editor-knowledge">
+                <strong>知识视频</strong>
+                <label>课时量<input id="wenzongKnowledgeHours" type="text" placeholder="例如：35节" /></label>
+                <label>赠送内容<input id="wenzongKnowledgeGift" type="text" placeholder="例如：春mini15节+秋20节" /></label>
+              </article>
+              <article class="module-editor-card module-editor-live">
+                <strong>学法直播</strong>
+                <label>课时量<input id="wenzongLiveHours" type="text" placeholder="例如：33节" /></label>
+                <label>赠送内容<input id="wenzongLiveGift" type="text" placeholder="例如：春mini7节+暑秋26节" /></label>
+              </article>
+              <article class="module-editor-card module-editor-service">
+                <strong>辅导服务</strong>
+                <label>课时量<input id="wenzongServiceHours" type="text" placeholder="例如：8个月辅导老师服务" /></label>
+                <label>赠送内容<input id="wenzongServiceGift" type="text" placeholder="可留空" /></label>
+              </article>
+            </div>
+          </div>
+
+          <div class="admin-fieldset admin-notes">
+            <div class="admin-fieldset-title">
+              <span>价格表说明</span>
+              <p>这些文字会直接展示在价格表上，可按产品单独维护。</p>
+            </div>
+            <div class="editor-grid">
+              <label>右上角标签<input id="editTag" type="text" placeholder="例如：非文综 / 语数英物化生" /></label>
+              <label>课程区标题<input id="editCourseBand" type="text" placeholder="例如：每科课程包含" /></label>
+              <label>说明标签<input id="editNoteLabel" type="text" placeholder="例如：说明" /></label>
+              <label>赠品文案<input id="editGiftText" type="text" placeholder="例如：报名赠送多个礼品" /></label>
+            </div>
+            <label class="notes-editor-label">
+              说明内容，每行一条
+              <textarea id="editNotes" rows="4" placeholder="例如：本页面价格适用于..."></textarea>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <section class="grade-gateway" aria-label="年级入口">
+        <div class="section-title">
+          <span>01</span>
+          <h2>选择年级入口</h2>
+        </div>
+        <div id="gradeCards" class="grade-cards"></div>
+      </section>
+
+      <section class="workspace-grid">
+        <aside class="sales-panel" aria-label="销售报价选择">
+          <div class="panel-card">
+            <div class="section-title compact">
+              <span>02</span>
+              <h2>销售报价</h2>
+            </div>
+
+            <label class="select-label">
+              选择产品
+              <select id="productSelect"></select>
+            </label>
+            <p id="productHint" class="product-hint"></p>
+
+            <div class="mode-control">
+              <p>报价类型</p>
+              <div class="mode-buttons" role="group" aria-label="选择报价类型">
+                <button type="button" class="mode-button active" data-quote-mode="nonWenZong">非文综阶梯价</button>
+                <button type="button" class="mode-button" data-quote-mode="wenZong">文综一口价</button>
+                <button type="button" class="mode-button" data-quote-mode="combo">文综组合价</button>
+              </div>
+            </div>
+
+            <div class="range-control">
+              <p>多科价格展示</p>
+              <div class="range-buttons" role="group" aria-label="选择价格展示范围">
+                <button type="button" class="range-button active" data-start-at="1">1科-6科</button>
+                <button type="button" class="range-button" data-start-at="2">2科-6科</button>
+                <button type="button" class="range-button" data-start-at="3">3科-6科</button>
+              </div>
+            </div>
+
+            <div class="combo-control">
+              <p>文综组合报价</p>
+              <div class="combo-fields">
+                <label>
+                  非文综
+                  <select id="comboNonWenZongCount">
+                    <option value="0">0科</option>
+                    <option value="1" selected>1科</option>
+                    <option value="2">2科</option>
+                    <option value="3">3科</option>
+                    <option value="4">4科</option>
+                    <option value="5">5科</option>
+                    <option value="6">6科</option>
+                  </select>
+                </label>
+                <label>
+                  文综
+                  <select id="comboWenZongCount">
+                    <option value="0" selected>不组合</option>
+                    <option value="1">文综1科</option>
+                    <option value="2">文综2科</option>
+                    <option value="3">文综3科</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+
+            <button id="exportPoster" type="button" class="export-button">导出当前价格表图片</button>
+            <div id="exportStatus" class="export-status" aria-live="polite"></div>
+          </div>
+        </aside>
+
+        <section class="preview-wrap" aria-label="价格表预览">
+          <div class="price-poster" id="pricePoster">
+            <div class="brand-plate">
+              <img src="./brand-logo.png" alt="网易有道领世" />
+            </div>
+            <div class="hero-card" aria-hidden="true">
+              <div class="glass-card back-card"></div>
+              <div class="glass-card front-card" id="heroCardLabel">直通卡</div>
+            </div>
+            <div class="tag-ribbon" id="posterTag">非文综</div>
+
+            <header class="poster-title">
+              <h2 id="posterTitle">直通高二全程班<br />价格体系</h2>
+              <p id="posterSubtitle" class="poster-subtitle"></p>
+            </header>
+
+            <section class="table-card">
+              <div class="price-table" id="priceTable"></div>
+              <div class="combo-quote" id="comboQuote" hidden></div>
+              <div class="course-band" id="courseBand">每科课程包含</div>
+              <div class="course-modules" id="courseModules"></div>
+            </section>
+
+            <footer class="notes-row">
+              <div class="note-label" id="noteLabel">说明</div>
+              <ol id="notesList"></ol>
+              <div class="gift-box"><span id="giftText">报名赠送多个礼品</span></div>
+            </footer>
+          </div>
+        </section>
+      </section>
+
+    </main>
+
+    <script src="./html2canvas.min.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>

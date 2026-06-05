@@ -1,0 +1,875 @@
+{
+  "version": "2026-06-03-v3",
+  "products": [
+    {
+      "id": "new-g1-bridge",
+      "grade": "高一",
+      "theme": "peach",
+      "family": "初高衔接卡",
+      "name": "初高升学领航卡",
+      "subtitle": "初高衔接",
+      "ranges": [
+        {
+          "displayRange": "1科-6科",
+          "table": [
+            {
+              "subject": "一科",
+              "subjectCount": 1,
+              "officialPrice": 2800,
+              "coupon": 402,
+              "unitPriceAfterDiscount": 2398,
+              "payPrice": 2398
+            },
+            {
+              "subject": "两科",
+              "subjectCount": 2,
+              "officialPrice": 5600,
+              "coupon": 1404,
+              "unitPriceAfterDiscount": 2098,
+              "payPrice": 4196
+            },
+            {
+              "subject": "满三科最优惠",
+              "subjectCount": 3,
+              "officialPrice": 8400,
+              "coupon": 3306,
+              "unitPriceAfterDiscount": 1698,
+              "payPrice": 5094
+            },
+            {
+              "subject": "四科",
+              "subjectCount": 4,
+              "officialPrice": 11200,
+              "coupon": 4408,
+              "unitPriceAfterDiscount": 1698,
+              "payPrice": 6792
+            },
+            {
+              "subject": "五科",
+              "subjectCount": 5,
+              "officialPrice": 14000,
+              "coupon": 5510,
+              "unitPriceAfterDiscount": 1698,
+              "payPrice": 8490
+            },
+            {
+              "subject": "六科",
+              "subjectCount": 6,
+              "officialPrice": 16800,
+              "coupon": 6612,
+              "unitPriceAfterDiscount": 1698,
+              "payPrice": 10188
+            }
+          ]
+        },
+        {
+          "displayRange": "2科-6科",
+          "table": [
+            {
+              "subject": "两科",
+              "subjectCount": 2,
+              "officialPrice": 5600,
+              "coupon": 1404,
+              "unitPriceAfterDiscount": 2098,
+              "payPrice": 4196
+            },
+            {
+              "subject": "满三科最优惠",
+              "subjectCount": 3,
+              "officialPrice": 8400,
+              "coupon": 3306,
+              "unitPriceAfterDiscount": 1698,
+              "payPrice": 5094
+            },
+            {
+              "subject": "四科",
+              "subjectCount": 4,
+              "officialPrice": 11200,
+              "coupon": 4408,
+              "unitPriceAfterDiscount": 1698,
+              "payPrice": 6792
+            },
+            {
+              "subject": "五科",
+              "subjectCount": 5,
+              "officialPrice": 14000,
+              "coupon": 5510,
+              "unitPriceAfterDiscount": 1698,
+              "payPrice": 8490
+            },
+            {
+              "subject": "六科",
+              "subjectCount": 6,
+              "officialPrice": 16800,
+              "coupon": 6612,
+              "unitPriceAfterDiscount": 1698,
+              "payPrice": 10188
+            }
+          ]
+        },
+        {
+          "displayRange": "3科-6科",
+          "table": [
+            {
+              "subject": "满三科最优惠",
+              "subjectCount": 3,
+              "officialPrice": 8400,
+              "coupon": 3306,
+              "unitPriceAfterDiscount": 1698,
+              "payPrice": 5094
+            },
+            {
+              "subject": "四科",
+              "subjectCount": 4,
+              "officialPrice": 11200,
+              "coupon": 4408,
+              "unitPriceAfterDiscount": 1698,
+              "payPrice": 6792
+            },
+            {
+              "subject": "五科",
+              "subjectCount": 5,
+              "officialPrice": 14000,
+              "coupon": 5510,
+              "unitPriceAfterDiscount": 1698,
+              "payPrice": 8490
+            },
+            {
+              "subject": "六科",
+              "subjectCount": 6,
+              "officialPrice": 16800,
+              "coupon": 6612,
+              "unitPriceAfterDiscount": 1698,
+              "payPrice": 10188
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "new-g1-win",
+      "grade": "高一",
+      "theme": "peach",
+      "family": "高一暑秋卡",
+      "name": "新高一全体系决胜卡",
+      "subtitle": "暑秋",
+      "ranges": [
+        {
+          "displayRange": "1科-6科",
+          "table": [
+            {
+              "subject": "一科",
+              "subjectCount": 1,
+              "officialPrice": 6400,
+              "coupon": 2520,
+              "unitPriceAfterDiscount": 3880,
+              "payPrice": 3880
+            },
+            {
+              "subject": "两科",
+              "subjectCount": 2,
+              "officialPrice": 12800,
+              "coupon": 5640,
+              "unitPriceAfterDiscount": 3580,
+              "payPrice": 7160
+            },
+            {
+              "subject": "满三科最优惠",
+              "subjectCount": 3,
+              "officialPrice": 19200,
+              "coupon": 9360,
+              "unitPriceAfterDiscount": 3280,
+              "payPrice": 9840
+            },
+            {
+              "subject": "四科",
+              "subjectCount": 4,
+              "officialPrice": 25600,
+              "coupon": 12480,
+              "unitPriceAfterDiscount": 3280,
+              "payPrice": 13120
+            },
+            {
+              "subject": "五科",
+              "subjectCount": 5,
+              "officialPrice": 32000,
+              "coupon": 15600,
+              "unitPriceAfterDiscount": 3280,
+              "payPrice": 16400
+            },
+            {
+              "subject": "六科",
+              "subjectCount": 6,
+              "officialPrice": 38400,
+              "coupon": 18720,
+              "unitPriceAfterDiscount": 3280,
+              "payPrice": 19680
+            }
+          ]
+        },
+        {
+          "displayRange": "2科-6科",
+          "table": [
+            {
+              "subject": "两科",
+              "subjectCount": 2,
+              "officialPrice": 12800,
+              "coupon": 5640,
+              "unitPriceAfterDiscount": 3580,
+              "payPrice": 7160
+            },
+            {
+              "subject": "满三科最优惠",
+              "subjectCount": 3,
+              "officialPrice": 19200,
+              "coupon": 9360,
+              "unitPriceAfterDiscount": 3280,
+              "payPrice": 9840
+            },
+            {
+              "subject": "四科",
+              "subjectCount": 4,
+              "officialPrice": 25600,
+              "coupon": 12480,
+              "unitPriceAfterDiscount": 3280,
+              "payPrice": 13120
+            },
+            {
+              "subject": "五科",
+              "subjectCount": 5,
+              "officialPrice": 32000,
+              "coupon": 15600,
+              "unitPriceAfterDiscount": 3280,
+              "payPrice": 16400
+            },
+            {
+              "subject": "六科",
+              "subjectCount": 6,
+              "officialPrice": 38400,
+              "coupon": 18720,
+              "unitPriceAfterDiscount": 3280,
+              "payPrice": 19680
+            }
+          ]
+        },
+        {
+          "displayRange": "3科-6科",
+          "table": [
+            {
+              "subject": "满三科最优惠",
+              "subjectCount": 3,
+              "officialPrice": 19200,
+              "coupon": 9360,
+              "unitPriceAfterDiscount": 3280,
+              "payPrice": 9840
+            },
+            {
+              "subject": "四科",
+              "subjectCount": 4,
+              "officialPrice": 25600,
+              "coupon": 12480,
+              "unitPriceAfterDiscount": 3280,
+              "payPrice": 13120
+            },
+            {
+              "subject": "五科",
+              "subjectCount": 5,
+              "officialPrice": 32000,
+              "coupon": 15600,
+              "unitPriceAfterDiscount": 3280,
+              "payPrice": 16400
+            },
+            {
+              "subject": "六科",
+              "subjectCount": 6,
+              "officialPrice": 38400,
+              "coupon": 18720,
+              "unitPriceAfterDiscount": 3280,
+              "payPrice": 19680
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g1-full-through",
+      "grade": "高二",
+      "theme": "blue",
+      "family": "高二全程班",
+      "name": "直通高二全程班",
+      "subtitle": "春mini+暑秋半年卡",
+      "ranges": [
+        {
+          "displayRange": "1科-6科",
+          "table": [
+            {
+              "subject": "一科",
+              "subjectCount": 1,
+              "officialPrice": 7400,
+              "coupon": 1820,
+              "unitPriceAfterDiscount": 5580,
+              "payPrice": 5580
+            },
+            {
+              "subject": "两科",
+              "subjectCount": 2,
+              "officialPrice": 14800,
+              "coupon": 4240,
+              "unitPriceAfterDiscount": 5280,
+              "payPrice": 10560
+            },
+            {
+              "subject": "满三科最优惠",
+              "subjectCount": 3,
+              "officialPrice": 22200,
+              "coupon": 7560,
+              "unitPriceAfterDiscount": 4880,
+              "payPrice": 14640
+            },
+            {
+              "subject": "四科",
+              "subjectCount": 4,
+              "officialPrice": 29600,
+              "coupon": 10080,
+              "unitPriceAfterDiscount": 4880,
+              "payPrice": 19520
+            },
+            {
+              "subject": "五科",
+              "subjectCount": 5,
+              "officialPrice": 37000,
+              "coupon": 12600,
+              "unitPriceAfterDiscount": 4880,
+              "payPrice": 24400
+            },
+            {
+              "subject": "六科",
+              "subjectCount": 6,
+              "officialPrice": 44400,
+              "coupon": 15120,
+              "unitPriceAfterDiscount": 4880,
+              "payPrice": 29280
+            }
+          ]
+        },
+        {
+          "displayRange": "2科-6科",
+          "table": [
+            {
+              "subject": "两科",
+              "subjectCount": 2,
+              "officialPrice": 14800,
+              "coupon": 4240,
+              "unitPriceAfterDiscount": 5280,
+              "payPrice": 10560
+            },
+            {
+              "subject": "满三科最优惠",
+              "subjectCount": 3,
+              "officialPrice": 22200,
+              "coupon": 7560,
+              "unitPriceAfterDiscount": 4880,
+              "payPrice": 14640
+            },
+            {
+              "subject": "四科",
+              "subjectCount": 4,
+              "officialPrice": 29600,
+              "coupon": 10080,
+              "unitPriceAfterDiscount": 4880,
+              "payPrice": 19520
+            },
+            {
+              "subject": "五科",
+              "subjectCount": 5,
+              "officialPrice": 37000,
+              "coupon": 12600,
+              "unitPriceAfterDiscount": 4880,
+              "payPrice": 24400
+            },
+            {
+              "subject": "六科",
+              "subjectCount": 6,
+              "officialPrice": 44400,
+              "coupon": 15120,
+              "unitPriceAfterDiscount": 4880,
+              "payPrice": 29280
+            }
+          ]
+        },
+        {
+          "displayRange": "3科-6科",
+          "table": [
+            {
+              "subject": "满三科最优惠",
+              "subjectCount": 3,
+              "officialPrice": 22200,
+              "coupon": 7560,
+              "unitPriceAfterDiscount": 4880,
+              "payPrice": 14640
+            },
+            {
+              "subject": "四科",
+              "subjectCount": 4,
+              "officialPrice": 29600,
+              "coupon": 10080,
+              "unitPriceAfterDiscount": 4880,
+              "payPrice": 19520
+            },
+            {
+              "subject": "五科",
+              "subjectCount": 5,
+              "officialPrice": 37000,
+              "coupon": 12600,
+              "unitPriceAfterDiscount": 4880,
+              "payPrice": 24400
+            },
+            {
+              "subject": "六科",
+              "subjectCount": 6,
+              "officialPrice": 44400,
+              "coupon": 15120,
+              "unitPriceAfterDiscount": 4880,
+              "payPrice": 29280
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g1-half-win",
+      "grade": "高二",
+      "theme": "blue",
+      "family": "高一半年卡",
+      "name": "新高一全体系决胜卡",
+      "subtitle": "暑秋半年卡",
+      "ranges": [
+        {
+          "displayRange": "1科-6科",
+          "table": [
+            {
+              "subject": "一科",
+              "subjectCount": 1,
+              "officialPrice": 5600,
+              "coupon": 1420,
+              "unitPriceAfterDiscount": 4180,
+              "payPrice": 4180
+            },
+            {
+              "subject": "两科",
+              "subjectCount": 2,
+              "officialPrice": 11200,
+              "coupon": 3240,
+              "unitPriceAfterDiscount": 3980,
+              "payPrice": 7960
+            },
+            {
+              "subject": "满三科最优惠",
+              "subjectCount": 3,
+              "officialPrice": 16800,
+              "coupon": 5760,
+              "unitPriceAfterDiscount": 3680,
+              "payPrice": 11040
+            },
+            {
+              "subject": "四科",
+              "subjectCount": 4,
+              "officialPrice": 22400,
+              "coupon": 7680,
+              "unitPriceAfterDiscount": 3680,
+              "payPrice": 14720
+            },
+            {
+              "subject": "五科",
+              "subjectCount": 5,
+              "officialPrice": 28000,
+              "coupon": 9600,
+              "unitPriceAfterDiscount": 3680,
+              "payPrice": 18400
+            },
+            {
+              "subject": "六科",
+              "subjectCount": 6,
+              "officialPrice": 33600,
+              "coupon": 11520,
+              "unitPriceAfterDiscount": 3680,
+              "payPrice": 22080
+            }
+          ]
+        },
+        {
+          "displayRange": "2科-6科",
+          "table": [
+            {
+              "subject": "两科",
+              "subjectCount": 2,
+              "officialPrice": 11200,
+              "coupon": 3240,
+              "unitPriceAfterDiscount": 3980,
+              "payPrice": 7960
+            },
+            {
+              "subject": "满三科最优惠",
+              "subjectCount": 3,
+              "officialPrice": 16800,
+              "coupon": 5760,
+              "unitPriceAfterDiscount": 3680,
+              "payPrice": 11040
+            },
+            {
+              "subject": "四科",
+              "subjectCount": 4,
+              "officialPrice": 22400,
+              "coupon": 7680,
+              "unitPriceAfterDiscount": 3680,
+              "payPrice": 14720
+            },
+            {
+              "subject": "五科",
+              "subjectCount": 5,
+              "officialPrice": 28000,
+              "coupon": 9600,
+              "unitPriceAfterDiscount": 3680,
+              "payPrice": 18400
+            },
+            {
+              "subject": "六科",
+              "subjectCount": 6,
+              "officialPrice": 33600,
+              "coupon": 11520,
+              "unitPriceAfterDiscount": 3680,
+              "payPrice": 22080
+            }
+          ]
+        },
+        {
+          "displayRange": "3科-6科",
+          "table": [
+            {
+              "subject": "满三科最优惠",
+              "subjectCount": 3,
+              "officialPrice": 16800,
+              "coupon": 5760,
+              "unitPriceAfterDiscount": 3680,
+              "payPrice": 11040
+            },
+            {
+              "subject": "四科",
+              "subjectCount": 4,
+              "officialPrice": 22400,
+              "coupon": 7680,
+              "unitPriceAfterDiscount": 3680,
+              "payPrice": 14720
+            },
+            {
+              "subject": "五科",
+              "subjectCount": 5,
+              "officialPrice": 28000,
+              "coupon": 9600,
+              "unitPriceAfterDiscount": 3680,
+              "payPrice": 18400
+            },
+            {
+              "subject": "六科",
+              "subjectCount": 6,
+              "officialPrice": 33600,
+              "coupon": 11520,
+              "unitPriceAfterDiscount": 3680,
+              "payPrice": 22080
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g2-round-early",
+      "grade": "高三",
+      "theme": "purple",
+      "family": "一轮卡",
+      "name": "一轮卡-早鸟价",
+      "subtitle": "26H2一轮卡",
+      "ranges": [
+        {
+          "displayRange": "1科-6科",
+          "table": [
+            {
+              "subject": "一科",
+              "subjectCount": 1,
+              "officialPrice": 5600,
+              "coupon": 420,
+              "unitPriceAfterDiscount": 5180,
+              "payPrice": 5180
+            },
+            {
+              "subject": "两科",
+              "subjectCount": 2,
+              "officialPrice": 11200,
+              "coupon": 1240,
+              "unitPriceAfterDiscount": 4980,
+              "payPrice": 9960
+            },
+            {
+              "subject": "满三科最优惠",
+              "subjectCount": 3,
+              "officialPrice": 16800,
+              "coupon": 2760,
+              "unitPriceAfterDiscount": 4680,
+              "payPrice": 14040
+            },
+            {
+              "subject": "四科",
+              "subjectCount": 4,
+              "officialPrice": 22400,
+              "coupon": 3680,
+              "unitPriceAfterDiscount": 4680,
+              "payPrice": 18720
+            },
+            {
+              "subject": "五科",
+              "subjectCount": 5,
+              "officialPrice": 28000,
+              "coupon": 4600,
+              "unitPriceAfterDiscount": 4680,
+              "payPrice": 23400
+            },
+            {
+              "subject": "六科",
+              "subjectCount": 6,
+              "officialPrice": 33600,
+              "coupon": 5520,
+              "unitPriceAfterDiscount": 4680,
+              "payPrice": 28080
+            }
+          ]
+        },
+        {
+          "displayRange": "2科-6科",
+          "table": [
+            {
+              "subject": "两科",
+              "subjectCount": 2,
+              "officialPrice": 11200,
+              "coupon": 1240,
+              "unitPriceAfterDiscount": 4980,
+              "payPrice": 9960
+            },
+            {
+              "subject": "满三科最优惠",
+              "subjectCount": 3,
+              "officialPrice": 16800,
+              "coupon": 2760,
+              "unitPriceAfterDiscount": 4680,
+              "payPrice": 14040
+            },
+            {
+              "subject": "四科",
+              "subjectCount": 4,
+              "officialPrice": 22400,
+              "coupon": 3680,
+              "unitPriceAfterDiscount": 4680,
+              "payPrice": 18720
+            },
+            {
+              "subject": "五科",
+              "subjectCount": 5,
+              "officialPrice": 28000,
+              "coupon": 4600,
+              "unitPriceAfterDiscount": 4680,
+              "payPrice": 23400
+            },
+            {
+              "subject": "六科",
+              "subjectCount": 6,
+              "officialPrice": 33600,
+              "coupon": 5520,
+              "unitPriceAfterDiscount": 4680,
+              "payPrice": 28080
+            }
+          ]
+        },
+        {
+          "displayRange": "3科-6科",
+          "table": [
+            {
+              "subject": "满三科最优惠",
+              "subjectCount": 3,
+              "officialPrice": 16800,
+              "coupon": 2760,
+              "unitPriceAfterDiscount": 4680,
+              "payPrice": 14040
+            },
+            {
+              "subject": "四科",
+              "subjectCount": 4,
+              "officialPrice": 22400,
+              "coupon": 3680,
+              "unitPriceAfterDiscount": 4680,
+              "payPrice": 18720
+            },
+            {
+              "subject": "五科",
+              "subjectCount": 5,
+              "officialPrice": 28000,
+              "coupon": 4600,
+              "unitPriceAfterDiscount": 4680,
+              "payPrice": 23400
+            },
+            {
+              "subject": "六科",
+              "subjectCount": 6,
+              "officialPrice": 33600,
+              "coupon": 5520,
+              "unitPriceAfterDiscount": 4680,
+              "payPrice": 28080
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g2-round-full",
+      "grade": "高三",
+      "theme": "purple",
+      "family": "一轮全程班",
+      "name": "直通一轮全程班",
+      "subtitle": "春mini+一轮",
+      "ranges": [
+        {
+          "displayRange": "1科-6科",
+          "table": [
+            {
+              "subject": "一科",
+              "subjectCount": 1,
+              "officialPrice": 7400,
+              "coupon": 820,
+              "unitPriceAfterDiscount": 6580,
+              "payPrice": 6580
+            },
+            {
+              "subject": "两科",
+              "subjectCount": 2,
+              "officialPrice": 14800,
+              "coupon": 2240,
+              "unitPriceAfterDiscount": 6280,
+              "payPrice": 12560
+            },
+            {
+              "subject": "满三科最优惠",
+              "subjectCount": 3,
+              "officialPrice": 22200,
+              "coupon": 4560,
+              "unitPriceAfterDiscount": 5880,
+              "payPrice": 17640
+            },
+            {
+              "subject": "四科",
+              "subjectCount": 4,
+              "officialPrice": 29600,
+              "coupon": 6080,
+              "unitPriceAfterDiscount": 5880,
+              "payPrice": 23520
+            },
+            {
+              "subject": "五科",
+              "subjectCount": 5,
+              "officialPrice": 37000,
+              "coupon": 7600,
+              "unitPriceAfterDiscount": 5880,
+              "payPrice": 29400
+            },
+            {
+              "subject": "六科",
+              "subjectCount": 6,
+              "officialPrice": 44400,
+              "coupon": 9120,
+              "unitPriceAfterDiscount": 5880,
+              "payPrice": 35280
+            }
+          ]
+        },
+        {
+          "displayRange": "2科-6科",
+          "table": [
+            {
+              "subject": "两科",
+              "subjectCount": 2,
+              "officialPrice": 14800,
+              "coupon": 2240,
+              "unitPriceAfterDiscount": 6280,
+              "payPrice": 12560
+            },
+            {
+              "subject": "满三科最优惠",
+              "subjectCount": 3,
+              "officialPrice": 22200,
+              "coupon": 4560,
+              "unitPriceAfterDiscount": 5880,
+              "payPrice": 17640
+            },
+            {
+              "subject": "四科",
+              "subjectCount": 4,
+              "officialPrice": 29600,
+              "coupon": 6080,
+              "unitPriceAfterDiscount": 5880,
+              "payPrice": 23520
+            },
+            {
+              "subject": "五科",
+              "subjectCount": 5,
+              "officialPrice": 37000,
+              "coupon": 7600,
+              "unitPriceAfterDiscount": 5880,
+              "payPrice": 29400
+            },
+            {
+              "subject": "六科",
+              "subjectCount": 6,
+              "officialPrice": 44400,
+              "coupon": 9120,
+              "unitPriceAfterDiscount": 5880,
+              "payPrice": 35280
+            }
+          ]
+        },
+        {
+          "displayRange": "3科-6科",
+          "table": [
+            {
+              "subject": "满三科最优惠",
+              "subjectCount": 3,
+              "officialPrice": 22200,
+              "coupon": 4560,
+              "unitPriceAfterDiscount": 5880,
+              "payPrice": 17640
+            },
+            {
+              "subject": "四科",
+              "subjectCount": 4,
+              "officialPrice": 29600,
+              "coupon": 6080,
+              "unitPriceAfterDiscount": 5880,
+              "payPrice": 23520
+            },
+            {
+              "subject": "五科",
+              "subjectCount": 5,
+              "officialPrice": 37000,
+              "coupon": 7600,
+              "unitPriceAfterDiscount": 5880,
+              "payPrice": 29400
+            },
+            {
+              "subject": "六科",
+              "subjectCount": 6,
+              "officialPrice": 44400,
+              "coupon": 9120,
+              "unitPriceAfterDiscount": 5880,
+              "payPrice": 35280
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
