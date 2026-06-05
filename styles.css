@@ -679,8 +679,8 @@ textarea:disabled {
 
 .admin-actions {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 8px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
 }
 
 .admin-fieldset {
@@ -696,6 +696,7 @@ textarea:disabled {
 }
 
 .admin-course,
+.admin-basic,
 .admin-notes {
   grid-column: 1 / -1;
 }
@@ -753,7 +754,7 @@ textarea:disabled {
 }
 
 .admin-notes .editor-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .module-editor-grid {

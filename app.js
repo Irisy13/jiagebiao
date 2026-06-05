@@ -1338,15 +1338,6 @@ function bindEvents() {
   getEl("saveCatalog").addEventListener("click", saveEditor);
   getEl("addProduct").addEventListener("click", addProduct);
   getEl("deleteProduct").addEventListener("click", deleteCurrentProduct);
-  getEl("resetCatalog").addEventListener("click", () => {
-    catalog = normalizeCatalog(defaultCatalog);
-    state.selectedGrade = catalog.some((product) => product.grade === "高一") ? "高一" : catalog[0].grade;
-    state.selectedProductId = firstOnlineProduct()?.id || catalog[0].id;
-    state.adminEditingProductId = catalog[0].id;
-    persistCatalog();
-    render();
-  });
-  getEl("catalogUpload").addEventListener("change", (event) => importCatalog(event.target.files[0]));
   getEl("exportPoster").addEventListener("click", exportPosterImage);
   getEl("editWenZongMode").addEventListener("change", updateAdminWenZongVisibility);
 
