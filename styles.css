@@ -1557,6 +1557,10 @@ textarea:disabled {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.course-modules.combo-modules {
+  min-height: 330px;
+}
+
 .module {
   display: grid;
   grid-template-rows: 148px 76px 86px;
@@ -1565,6 +1569,14 @@ textarea:disabled {
   align-items: center;
   padding: 22px 18px 0;
   border-right: 1px solid #ded8d0;
+}
+
+.combo-modules .module {
+  grid-template-rows: 118px 60px minmax(126px, 1fr);
+  gap: 5px;
+  min-width: 0;
+  padding: 16px 18px 0;
+  overflow: hidden;
 }
 
 .module:last-child {
@@ -1588,6 +1600,15 @@ textarea:disabled {
   width: 100%;
   max-height: 142px;
   object-fit: contain;
+}
+
+.combo-modules .module-visual {
+  width: min(136px, 66%);
+  height: 112px;
+}
+
+.combo-modules .module-visual img {
+  max-height: 112px;
 }
 
 .module-label {
@@ -1626,32 +1647,34 @@ textarea:disabled {
 
 .combo-module-hours {
   display: grid;
-  align-content: start;
-  gap: 6px;
-  padding: 12px 12px 0;
-  font-size: 17px;
-  line-height: 1.35;
+  align-content: center;
+  gap: 5px;
+  min-height: 126px;
+  padding: 10px 8px 8px;
+  overflow: hidden;
+  font-size: 16px;
+  line-height: 1.28;
 }
 
 .combo-module-hours > strong {
   display: block;
   margin-bottom: 0;
   color: #111;
-  font-size: 19px;
+  font-size: 18px;
 }
 
 .combo-module-lines {
   display: grid;
-  gap: 5px;
-  width: min(230px, 100%);
+  gap: 4px;
+  width: min(210px, 100%);
   margin: 0 auto;
 }
 
 .combo-module-lines span {
   display: grid;
-  grid-template-columns: 68px 1fr;
+  grid-template-columns: 62px minmax(0, 1fr);
   align-items: baseline;
-  gap: 8px;
+  gap: 6px;
   color: #111;
   text-align: left;
 }
@@ -1669,7 +1692,7 @@ textarea:disabled {
 
 .combo-service-line {
   display: grid;
-  gap: 6px;
+  gap: 5px;
   justify-items: center;
   color: #111;
   text-align: center;
@@ -1677,15 +1700,16 @@ textarea:disabled {
 
 .combo-service-line strong {
   color: #111;
-  font-size: 19px;
+  font-size: 18px;
   font-weight: 900;
 }
 
 .combo-service-line span {
-  max-width: 260px;
-  font-size: 18px;
+  max-width: min(250px, 100%);
+  overflow-wrap: anywhere;
+  font-size: 16px;
   font-weight: 900;
-  line-height: 1.35;
+  line-height: 1.28;
 }
 
 .gift-text {
@@ -1696,9 +1720,9 @@ textarea:disabled {
   display: inline-block;
   margin-top: 0;
   color: #4f5360;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 900;
-  line-height: 1.35;
+  line-height: 1.25;
 }
 
 .notes-row {

@@ -734,6 +734,7 @@ function renderCourseModules(product, type = activeContentType()) {
     Boolean(item.hours || item.gift || (item.key === "service" && product.servicePeriod))
   );
   const grid = getEl("courseModules");
+  grid.classList.remove("combo-modules");
   grid.style.setProperty("--module-count", modules.length);
   grid.dataset.count = String(modules.length);
   grid.innerHTML = modules.map((item) => `
@@ -805,6 +806,7 @@ function renderComboCourseModules(product) {
   );
 
   const grid = getEl("courseModules");
+  grid.classList.add("combo-modules");
   grid.style.setProperty("--module-count", modules.length);
   grid.dataset.count = String(modules.length);
   grid.innerHTML = modules.map(({ template, non, wen }) => {
