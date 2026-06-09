@@ -764,14 +764,29 @@ function cleanGiftText(gift) {
 
 function comboModuleLine(label, item, include) {
   if (!include || !moduleHasContent(item)) return "";
-  const hours = item.hours || "按产品配置";
-  return `<span><b>${label}</b>${escapeHtml(hours)}</span>`;
+  const hours = hoursPerSubject(item.hours);
+  return `<span><b>${label}：</b><em>${escapeHtml(hours)}</em></span>`;
 }
 
-function comboGiftLine(label, item, include) {
-  const gift = cleanGiftText(item?.gift);
-  if (!include || !gift) return "";
-  return `<span><b>${label}</b>赠·${escapeHtml(gift)}</span>`;
+function hoursPerSubject(hours) {
+  const text = String(hours || "").trim();
+  if (!text) return "按产品配置";
+  if (text.includes("/科")) return text;
+  if (text.includes("辅导老师服务") || text.includes("服务")) return text;
+  return `${text}/科`;
+}
+
+function cleanServiceHours(hours) {
+  return String(hours || "").trim() || "按产品配置";
+}
+
+function comboServiceSummary(wen, non, showWen, showNon) {
+  const wenHours = showWen && moduleHasContent(wen) ? cleanServiceHours(wen.hours) : "";
+  const nonHours = showNon && moduleHasContent(non) ? cleanServiceHours(non.hours) : "";
+  if (wenHours && nonHours && wenHours !== nonHours) {
+    return `文综${wenHours} / 非文综${nonHours}`;
+  }
+  return nonHours || wenHours || "按产品配置";
 }
 
 function renderComboCourseModules(product) {
@@ -798,10 +813,8 @@ function renderComboCourseModules(product) {
       comboModuleLine("文综", wen, showWen),
       comboModuleLine("非文综", non, showNon)
     ].filter(Boolean).join("");
-    const giftLines = [
-      comboGiftLine("文综", wen, showWen),
-      comboGiftLine("非文综", non, showNon)
-    ].filter(Boolean).join("");
+    const isService = template.key === "service";
+    const serviceSummary = isService ? comboServiceSummary(wen, non, showWen, showNon) : "";
     return `
       <article class="module module-${template.key} combo-module">
         <div class="module-visual" aria-hidden="true">
@@ -812,9 +825,9 @@ function renderComboCourseModules(product) {
           <span class="module-copy">${escapeHtml(template.subtitle)}</span>
         </div>
         <div class="module-hours combo-module-hours">
-          <strong>${title}：</strong>
-          <div class="combo-module-lines">${hoursLines || "<span>按产品配置</span>"}</div>
-          ${giftLines ? `<div class="combo-module-gifts">${giftLines}</div>` : ""}
+          ${isService
+            ? `<div class="combo-service-line"><strong>辅导服务：</strong><span>${escapeHtml(serviceSummary)}</span></div>`
+            : `<strong>${title}：</strong><div class="combo-module-lines">${hoursLines || "<span>按产品配置</span>"}</div>`}
           ${template.key === "service" && product.servicePeriod ? `<span class="service-period">服务期：${escapeHtml(product.servicePeriod)}</span>` : ""}
         </div>
       </article>
