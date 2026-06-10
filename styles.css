@@ -1666,13 +1666,13 @@ textarea:disabled {
 .combo-module-lines {
   display: grid;
   gap: 4px;
-  width: min(210px, 100%);
+  width: min(246px, 100%);
   margin: 0 auto;
 }
 
 .combo-module-lines span {
   display: grid;
-  grid-template-columns: 62px minmax(0, 1fr);
+  grid-template-columns: 84px minmax(0, 1fr);
   align-items: baseline;
   gap: 6px;
   color: #111;
@@ -1683,11 +1683,13 @@ textarea:disabled {
   color: #f23434;
   font-weight: 900;
   text-align: right;
+  white-space: nowrap;
 }
 
 .combo-module-lines em {
   font-style: normal;
   font-weight: 900;
+  white-space: nowrap;
 }
 
 .combo-service-line {
