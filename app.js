@@ -63,6 +63,7 @@ const defaultCatalog = [
     subtitle: "初高衔接",
     tag: "语数英物化生",
     theme: "peach",
+    isOnline: false,
     nonWenZong: { officialUnitPrice: 2800, tiers: { 1: 2398, 2: 2098, 3: 1698 } },
     wenZong: { mode: "same", officialUnitPrice: 2800, dealUnitPrice: 1698 },
     content: {
@@ -263,7 +264,9 @@ const defaultCatalog = [
   }
 ];
 
-let catalog = normalizeCatalog(loadCatalog());
+const loadedCatalog = loadCatalog();
+let deletedProductIds = loadedCatalog.deletedProductIds;
+let catalog = normalizeCatalog(loadedCatalog.products);
 let state = {
   selectedGrade: catalog.some((product) => product.grade === "高一") ? "高一" : catalog[0]?.grade || "",
   selectedProductId: catalog[0]?.id || "",
@@ -283,13 +286,58 @@ function clone(value) {
 function loadCatalog() {
   try {
     const saved = localStorage.getItem(STORAGE_KEY);
-    if (!saved) return clone(defaultCatalog);
+    if (!saved) return { products: clone(defaultCatalog), deletedProductIds: [] };
     const parsed = JSON.parse(saved);
     const products = Array.isArray(parsed) ? parsed : parsed.products;
-    return validateCatalog(products) ? products : clone(defaultCatalog);
+    const deletedIds = Array.isArray(parsed?.deletedProductIds) ? parsed.deletedProductIds : [];
+    const mergedProducts = mergeCatalogWithDefaults(products, deletedIds);
+    applyLegacyAdminFixes(mergedProducts, parsed);
+    return {
+      products: mergedProducts,
+      deletedProductIds: deletedIds
+    };
   } catch {
-    return clone(defaultCatalog);
+    return { products: clone(defaultCatalog), deletedProductIds: [] };
   }
+}
+
+function isPlainObject(value) {
+  return Boolean(value) && typeof value === "object" && !Array.isArray(value);
+}
+
+function mergeDeep(base, override) {
+  if (Array.isArray(base) || Array.isArray(override)) return clone(override ?? base);
+  if (!isPlainObject(base) || !isPlainObject(override)) return clone(override ?? base);
+  const result = clone(base);
+  Object.keys(override).forEach((key) => {
+    result[key] = Object.prototype.hasOwnProperty.call(base, key)
+      ? mergeDeep(base[key], override[key])
+      : clone(override[key]);
+  });
+  return result;
+}
+
+function hasMinimumProductShape(product) {
+  return Boolean(product?.id && product?.grade && product?.name);
+}
+
+function mergeCatalogWithDefaults(savedProducts, deletedIds = []) {
+  if (!Array.isArray(savedProducts)) return clone(defaultCatalog);
+  const savedById = new Map(savedProducts.filter(hasMinimumProductShape).map((product) => [product.id, product]));
+  const deletedSet = new Set(deletedIds);
+  const merged = defaultCatalog
+    .filter((product) => !deletedSet.has(product.id))
+    .map((product) => savedById.has(product.id) ? mergeDeep(product, savedById.get(product.id)) : clone(product));
+  savedProducts
+    .filter((product) => hasMinimumProductShape(product) && !defaultCatalog.some((item) => item.id === product.id))
+    .forEach((product) => merged.push(clone(product)));
+  return merged;
+}
+
+function applyLegacyAdminFixes(products, parsedStorage) {
+  if (parsedStorage?.updatedAt) return;
+  const bridgeProduct = products.find((product) => product.id === "g1-bridge-lead");
+  if (bridgeProduct) bridgeProduct.isOnline = false;
 }
 
 function normalizedGrade(grade) {
@@ -403,7 +451,11 @@ function normalizeCatalog(products) {
 }
 
 function persistCatalog() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify({ products: catalog }));
+  localStorage.setItem(STORAGE_KEY, JSON.stringify({
+    products: catalog,
+    deletedProductIds,
+    updatedAt: new Date().toISOString()
+  }));
 }
 
 function validateCatalog(products) {
@@ -1191,6 +1243,9 @@ function deleteCurrentProduct() {
   }
   const confirmed = window.confirm(`确认删除「${product.name}」吗？删除后销售端和后台都会移除该产品。`);
   if (!confirmed) return;
+  if (defaultCatalog.some((item) => item.id === product.id) && !deletedProductIds.includes(product.id)) {
+    deletedProductIds.push(product.id);
+  }
   catalog = catalog.filter((item) => item.id !== product.id);
   const fallback = firstOnlineProduct() || catalog[0];
   state.selectedGrade = fallback?.grade || "";
@@ -1371,6 +1426,10 @@ function bindEvents() {
     if (event.key === "Enter") unlockAdmin();
   });
   getEl("saveCatalog").addEventListener("click", saveEditor);
+  getEl("adminEditor").addEventListener("change", (event) => {
+    if (!state.adminUnlocked || event.target.id === "adminProductSelect") return;
+    saveEditor();
+  });
   getEl("addProduct").addEventListener("click", addProduct);
   getEl("deleteProduct").addEventListener("click", deleteCurrentProduct);
   getEl("exportPoster").addEventListener("click", exportPosterImage);

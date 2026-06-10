@@ -35,6 +35,7 @@
       "subtitle": "初高衔接",
       "tag": "语数英物化生",
       "theme": "peach",
+      "isOnline": false,
       "nonWenZong": {
         "officialUnitPrice": 2800,
         "tiers": {
