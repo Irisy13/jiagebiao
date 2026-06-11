@@ -1,5 +1,6 @@
 {
-  "version": "2026-06-03-v3",
+  "version": "2026-06-11-synced-from-app-defaults",
+  "title": "有道领世报价工作台",
   "gradeEntrances": [
     {
       "grade": "高一",
@@ -19,18 +20,21 @@
   ],
   "access": {
     "adminLocked": true,
+    "adminCode": "lingshi2026",
     "salesEditableFields": [
       "product",
-      "displayRange"
+      "displayRange",
+      "quoteMode",
+      "comboCounts"
     ]
   },
-  "pricingRule": "1科用单科价，2科用两科价，3-6科统一使用三科及以上价/科；优惠券=官网总价-支付价格。",
+  "pricingRule": "1科用单科价，2科用两科价，3-6科统一使用三科及以上价/科；优惠券=官网总价-支付价格。文综按产品配置自动展示：无文综、同价或一口价；组合价按非文综科数+文综科数分别计算后汇总。",
   "products": [
     {
-      "id": "new-g1-bridge",
+      "id": "g1-bridge-lead",
       "grade": "高一",
       "family": "初高衔接卡",
-      "level": "便宜班型",
+      "level": "小卡型",
       "name": "初高升学领航卡",
       "subtitle": "初高衔接",
       "tag": "语数英物化生",
@@ -43,6 +47,11 @@
           "2": 2098,
           "3": 1698
         }
+      },
+      "wenZong": {
+        "mode": "same",
+        "officialUnitPrice": 2800,
+        "dealUnitPrice": 1698
       },
       "content": {
         "nonWenZong": [
@@ -57,17 +66,40 @@
           {
             "module": "伴学服务",
             "badge": "陪伴学",
-            "label": "规划服务",
+            "label": "辅导服务",
             "subtitle": "伴学提升",
-            "hours": "2026.4.27-2026.8.31",
+            "hours": "辅导老师服务",
+            "gift": ""
+          }
+        ],
+        "wenZong": [
+          {
+            "module": "学法直播",
+            "badge": "讲到会",
+            "label": "学法直播",
+            "subtitle": "初高衔接",
+            "hours": "15节",
+            "gift": "初三冲刺5节+新高一暑假10节"
+          },
+          {
+            "module": "伴学服务",
+            "badge": "陪伴学",
+            "label": "辅导服务",
+            "subtitle": "伴学提升",
+            "hours": "辅导老师服务",
             "gift": ""
           }
         ]
       },
-      "servicePeriod": "2026.4.27-2026.8.31"
+      "servicePeriod": "2026.4.27-2026.8.31",
+      "notes": [
+        "本页面价格适用于高一初高升学领航卡（初高衔接）课程。",
+        "销售端仅可选择产品与展示范围，不能修改系统维护价格。",
+        "3科及以上统一按¥1,698/科计算。"
+      ]
     },
     {
-      "id": "new-g1-win",
+      "id": "g1-summer-fall-win",
       "grade": "高一",
       "family": "高一暑秋卡",
       "level": "贵版型",
@@ -82,6 +114,11 @@
           "2": 3580,
           "3": 3280
         }
+      },
+      "wenZong": {
+        "mode": "deal",
+        "officialUnitPrice": 4000,
+        "dealUnitPrice": 1900
       },
       "content": {
         "nonWenZong": [
@@ -104,17 +141,199 @@
           {
             "module": "伴学服务",
             "badge": "陪伴学",
-            "label": "规划服务",
+            "label": "辅导服务",
+            "subtitle": "伴学提升",
+            "hours": "6个月辅导老师服务",
+            "gift": ""
+          }
+        ],
+        "wenZong": [
+          {
+            "module": "知识视频",
+            "badge": "精准学",
+            "label": "知识视频",
+            "subtitle": "查缺补漏",
+            "hours": "20节",
+            "gift": "秋20节"
+          },
+          {
+            "module": "学法直播",
+            "badge": "讲到会",
+            "label": "学法直播",
+            "subtitle": "大招提分",
+            "hours": "26节",
+            "gift": "暑10节+秋16节"
+          },
+          {
+            "module": "伴学服务",
+            "badge": "陪伴学",
+            "label": "辅导服务",
             "subtitle": "伴学提升",
             "hours": "6个月辅导老师服务",
             "gift": ""
           }
         ]
       },
-      "servicePeriod": "2026.7.1-2026.12.31"
+      "servicePeriod": "2026.7.1-2026.12.31",
+      "notes": [
+        "本页面价格适用于新高一全体系决胜卡（暑秋）非文综课程。",
+        "5.1-中考冲刺卡（赠）服务期开始，大概4月中旬开启首联。",
+        "文综一口价按¥1,900/科计算。"
+      ]
     },
     {
-      "id": "g1-full-through",
+      "id": "g1-summer-research",
+      "grade": "高一",
+      "family": "高一暑研卡",
+      "level": "便宜班型",
+      "name": "新高一暑研卡",
+      "subtitle": "暑期",
+      "tag": "语数英物化生",
+      "theme": "peach",
+      "isOnline": true,
+      "nonWenZong": {
+        "officialUnitPrice": 1800,
+        "tiers": {
+          "1": 1399,
+          "2": 1199,
+          "3": 999
+        }
+      },
+      "wenZong": {
+        "mode": "same",
+        "officialUnitPrice": 1800,
+        "dealUnitPrice": 999
+      },
+      "content": {
+        "nonWenZong": [
+          {
+            "module": "学法直播",
+            "badge": "讲到会",
+            "label": "学法直播",
+            "subtitle": "暑期提升",
+            "hours": "10节",
+            "gift": "暑10节"
+          },
+          {
+            "module": "伴学服务",
+            "badge": "陪伴学",
+            "label": "辅导服务",
+            "subtitle": "伴学提升",
+            "hours": "辅导老师服务",
+            "gift": ""
+          }
+        ],
+        "wenZong": [
+          {
+            "module": "学法直播",
+            "badge": "讲到会",
+            "label": "学法直播",
+            "subtitle": "暑期提升",
+            "hours": "10节",
+            "gift": "暑10节"
+          },
+          {
+            "module": "伴学服务",
+            "badge": "陪伴学",
+            "label": "辅导服务",
+            "subtitle": "伴学提升",
+            "hours": "辅导老师服务",
+            "gift": ""
+          }
+        ]
+      },
+      "servicePeriod": "2026.07.01至2026.08.31",
+      "notes": [
+        "本页面价格适用于新高一暑研卡（暑期）课程。",
+        "6.9开售，销售端仅可选择产品与展示范围。",
+        "3科及以上统一按¥999/科计算。"
+      ]
+    },
+    {
+      "id": "g2-half-win",
+      "grade": "高二",
+      "family": "高二暑秋半年卡",
+      "level": "便宜班型",
+      "name": "新高二全体系决胜卡",
+      "subtitle": "暑秋半年卡",
+      "tag": "非文综",
+      "theme": "blue",
+      "nonWenZong": {
+        "officialUnitPrice": 5600,
+        "tiers": {
+          "1": 4180,
+          "2": 3980,
+          "3": 3680
+        }
+      },
+      "wenZong": {
+        "mode": "deal",
+        "officialUnitPrice": 5000,
+        "dealUnitPrice": 2300
+      },
+      "content": {
+        "nonWenZong": [
+          {
+            "module": "知识视频",
+            "badge": "精准学",
+            "label": "知识视频",
+            "subtitle": "查缺补漏",
+            "hours": "40节",
+            "gift": "秋40节"
+          },
+          {
+            "module": "学法直播",
+            "badge": "讲到会",
+            "label": "学法直播",
+            "subtitle": "大招提分",
+            "hours": "26节",
+            "gift": "暑10节+秋16节"
+          },
+          {
+            "module": "伴学服务",
+            "badge": "陪伴学",
+            "label": "辅导服务",
+            "subtitle": "伴学提升",
+            "hours": "6个月辅导老师服务",
+            "gift": ""
+          }
+        ],
+        "wenZong": [
+          {
+            "module": "知识视频",
+            "badge": "精准学",
+            "label": "知识视频",
+            "subtitle": "查缺补漏",
+            "hours": "20节",
+            "gift": "秋20节"
+          },
+          {
+            "module": "学法直播",
+            "badge": "讲到会",
+            "label": "学法直播",
+            "subtitle": "大招提分",
+            "hours": "26节",
+            "gift": "暑10节+秋16节"
+          },
+          {
+            "module": "伴学服务",
+            "badge": "陪伴学",
+            "label": "辅导服务",
+            "subtitle": "伴学提升",
+            "hours": "6个月辅导老师服务",
+            "gift": ""
+          }
+        ]
+      },
+      "servicePeriod": "2026.7.1-2026.12.31",
+      "notes": [
+        "本页面价格适用于新高二全体系决胜卡（暑秋半年卡）非文综课程。",
+        "赠送课程联系学业规划师安排学习。",
+        "文综一口价按¥2,300/科计算。"
+      ]
+    },
+    {
+      "id": "g2-through-full",
       "grade": "高二",
       "family": "高二全程班",
       "level": "贵版型",
@@ -129,6 +348,11 @@
           "2": 5280,
           "3": 4880
         }
+      },
+      "wenZong": {
+        "mode": "deal",
+        "officialUnitPrice": 6800,
+        "dealUnitPrice": 3050
       },
       "content": {
         "nonWenZong": [
@@ -151,64 +375,48 @@
           {
             "module": "伴学服务",
             "badge": "陪伴学",
-            "label": "规划服务",
+            "label": "辅导服务",
             "subtitle": "伴学提升",
             "hours": "8个月辅导老师服务",
             "gift": ""
           }
-        ]
-      },
-      "servicePeriod": "2026.5.1-2026.12.31"
-    },
-    {
-      "id": "g1-half-win",
-      "grade": "高二",
-      "family": "高一半年卡",
-      "level": "便宜班型",
-      "name": "新高一全体系决胜卡",
-      "subtitle": "暑秋半年卡",
-      "tag": "非文综",
-      "theme": "blue",
-      "nonWenZong": {
-        "officialUnitPrice": 5600,
-        "tiers": {
-          "1": 4180,
-          "2": 3980,
-          "3": 3680
-        }
-      },
-      "content": {
-        "nonWenZong": [
+        ],
+        "wenZong": [
           {
             "module": "知识视频",
             "badge": "精准学",
             "label": "知识视频",
             "subtitle": "查缺补漏",
-            "hours": "40节",
-            "gift": "秋40节"
+            "hours": "35节",
+            "gift": "春mini15节+秋20节"
           },
           {
             "module": "学法直播",
             "badge": "讲到会",
             "label": "学法直播",
             "subtitle": "大招提分",
-            "hours": "26节",
-            "gift": "暑10节+秋16节"
+            "hours": "33节",
+            "gift": "春mini7节+暑秋26节"
           },
           {
             "module": "伴学服务",
             "badge": "陪伴学",
-            "label": "规划服务",
+            "label": "辅导服务",
             "subtitle": "伴学提升",
-            "hours": "6个月辅导老师服务",
+            "hours": "8个月辅导老师服务",
             "gift": ""
           }
         ]
       },
-      "servicePeriod": "2026.7.1-2026.12.31"
+      "servicePeriod": "2026.5.1-2026.12.31",
+      "notes": [
+        "本页面价格适用于直通高二全程班（春mini+暑秋半年卡）非文综课程。",
+        "赠送课程联系学业规划师安排学习。",
+        "文综一口价按¥3,050/科计算。"
+      ]
     },
     {
-      "id": "g2-round-early",
+      "id": "g3-round-early",
       "grade": "高三",
       "family": "一轮卡",
       "level": "便宜班型",
@@ -223,6 +431,11 @@
           "2": 4980,
           "3": 4680
         }
+      },
+      "wenZong": {
+        "mode": "deal",
+        "officialUnitPrice": 5000,
+        "dealUnitPrice": 2700
       },
       "content": {
         "nonWenZong": [
@@ -245,17 +458,48 @@
           {
             "module": "伴学服务",
             "badge": "陪伴学",
-            "label": "规划服务",
+            "label": "辅导服务",
+            "subtitle": "伴学提升",
+            "hours": "6个月辅导老师服务",
+            "gift": ""
+          }
+        ],
+        "wenZong": [
+          {
+            "module": "知识视频",
+            "badge": "精准学",
+            "label": "知识视频",
+            "subtitle": "查缺补漏",
+            "hours": "30节",
+            "gift": "新高三一轮卡30节"
+          },
+          {
+            "module": "学法直播",
+            "badge": "讲到会",
+            "label": "学法直播",
+            "subtitle": "大招提分",
+            "hours": "26节",
+            "gift": "新高三一轮卡26节"
+          },
+          {
+            "module": "伴学服务",
+            "badge": "陪伴学",
+            "label": "辅导服务",
             "subtitle": "伴学提升",
             "hours": "6个月辅导老师服务",
             "gift": ""
           }
         ]
       },
-      "servicePeriod": "2026-07-01至2026-12-31"
+      "servicePeriod": "2026-07-01至2026-12-31",
+      "notes": [
+        "本页面价格适用于高三一轮卡-早鸟价（26H2一轮卡）非文综课程。",
+        "3科及以上统一按¥4,680/科计算。",
+        "文综一口价按¥2,700/科计算。"
+      ]
     },
     {
-      "id": "g2-round-full",
+      "id": "g3-through-round",
       "grade": "高三",
       "family": "一轮全程班",
       "level": "贵版型",
@@ -270,6 +514,11 @@
           "2": 6280,
           "3": 5880
         }
+      },
+      "wenZong": {
+        "mode": "deal",
+        "officialUnitPrice": 6800,
+        "dealUnitPrice": 3450
       },
       "content": {
         "nonWenZong": [
@@ -292,14 +541,45 @@
           {
             "module": "伴学服务",
             "badge": "陪伴学",
-            "label": "规划服务",
+            "label": "辅导服务",
+            "subtitle": "伴学提升",
+            "hours": "8个月辅导老师服务",
+            "gift": ""
+          }
+        ],
+        "wenZong": [
+          {
+            "module": "知识视频",
+            "badge": "精准学",
+            "label": "知识视频",
+            "subtitle": "查缺补漏",
+            "hours": "45节",
+            "gift": "春15节+一轮30节"
+          },
+          {
+            "module": "学法直播",
+            "badge": "讲到会",
+            "label": "学法直播",
+            "subtitle": "大招提分",
+            "hours": "33节",
+            "gift": "春7节+一轮26节"
+          },
+          {
+            "module": "伴学服务",
+            "badge": "陪伴学",
+            "label": "辅导服务",
             "subtitle": "伴学提升",
             "hours": "8个月辅导老师服务",
             "gift": ""
           }
         ]
       },
-      "servicePeriod": "2026.5.1-2026.12.31"
+      "servicePeriod": "2026.5.1-2026.12.31",
+      "notes": [
+        "本页面价格适用于高三直通一轮全程班（春mini+一轮）非文综课程。",
+        "3科及以上统一按¥5,880/科计算。",
+        "文综一口价按¥3,450/科计算。"
+      ]
     }
   ]
 }
