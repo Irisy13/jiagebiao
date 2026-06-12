@@ -63,9 +63,11 @@
             <div class="admin-actions">
               <button id="addProduct" type="button" class="primary-button">新增产品</button>
               <button id="saveCatalog" type="button" class="primary-button">保存当前编辑</button>
+              <button id="connectCatalogFileSync" type="button" class="ghost-button">连接本地同步</button>
               <button id="exportCatalog" type="button" class="ghost-button">导出后台数据 JSON</button>
               <button id="deleteProduct" type="button" class="danger-button">删除当前产品</button>
             </div>
+            <p id="catalogSyncStatus" class="catalog-sync-status">本地同步未连接。使用本地同步服务打开页面后，保存会自动写入项目文件。</p>
 
             <div id="catalogExportPanel" class="catalog-export-panel" hidden>
               <div class="catalog-export-head">

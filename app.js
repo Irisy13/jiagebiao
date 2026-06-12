@@ -1,5 +1,8 @@
 const ADMIN_CODE = "lingshi2026";
 const STORAGE_KEY = "youdao-price-catalog-v4";
+const CATALOG_SOURCE_PATH = "./product-catalog.json";
+const CATALOG_SYNC_ENDPOINT = "/api/catalog-sync";
+const CATALOG_FILE_NAME = "product-catalog.json";
 
 const yuan = new Intl.NumberFormat("zh-CN", { maximumFractionDigits: 0 });
 const money = (value) => `¥${yuan.format(Number(value) || 0)}`;
@@ -53,7 +56,7 @@ const moduleTemplates = [
   }
 ];
 
-const defaultCatalog = [
+let defaultCatalog = [
   {
     "id": "g1-summer-fall-win",
     "grade": "高一",
@@ -662,13 +665,14 @@ const defaultCatalog = [
   }
 ];
 
-const loadedCatalog = loadCatalog();
-let deletedProductIds = loadedCatalog.deletedProductIds;
-let catalog = normalizeCatalog(loadedCatalog.products);
+let defaultDeletedProductIds = [];
+let deletedProductIds = [];
+let catalog = [];
+let catalogFileHandle = null;
 let state = {
-  selectedGrade: catalog.some((product) => product.grade === "高一") ? "高一" : catalog[0]?.grade || "",
-  selectedProductId: catalog[0]?.id || "",
-  adminEditingProductId: catalog[0]?.id || "",
+  selectedGrade: "",
+  selectedProductId: "",
+  adminEditingProductId: "",
   exportObjectUrl: "",
   comboNonWenZongCount: 1,
   comboWenZongCount: 0,
@@ -681,13 +685,37 @@ function clone(value) {
   return JSON.parse(JSON.stringify(value));
 }
 
+async function loadDefaultCatalogFromFile() {
+  if (!window.fetch) return;
+  try {
+    const response = await fetch(`${CATALOG_SOURCE_PATH}?v=${Date.now()}`, { cache: "no-store" });
+    if (!response.ok) return;
+    const parsed = await response.json();
+    const products = Array.isArray(parsed) ? parsed : parsed.products;
+    if (!validateCatalog(products)) return;
+    defaultCatalog = normalizeCatalog(products);
+    defaultDeletedProductIds = Array.isArray(parsed?.deletedProductIds) ? parsed.deletedProductIds : [];
+  } catch {
+    defaultDeletedProductIds = [];
+  }
+}
+
+function applyLoadedCatalog(loadedCatalog) {
+  deletedProductIds = loadedCatalog.deletedProductIds;
+  catalog = normalizeCatalog(loadedCatalog.products);
+  state.selectedGrade = catalog.some((product) => product.grade === "高一") ? "高一" : catalog[0]?.grade || "";
+  state.selectedProductId = firstOnlineProduct()?.id || catalog[0]?.id || "";
+  state.adminEditingProductId = catalog[0]?.id || "";
+}
+
 function loadCatalog() {
   try {
     const saved = localStorage.getItem(STORAGE_KEY);
-    if (!saved) return { products: clone(defaultCatalog), deletedProductIds: [] };
+    if (!saved) return { products: clone(defaultCatalog), deletedProductIds: clone(defaultDeletedProductIds) };
     const parsed = JSON.parse(saved);
     const products = Array.isArray(parsed) ? parsed : parsed.products;
-    const deletedIds = Array.isArray(parsed?.deletedProductIds) ? parsed.deletedProductIds : [];
+    const savedDeletedIds = Array.isArray(parsed?.deletedProductIds) ? parsed.deletedProductIds : [];
+    const deletedIds = [...new Set([...defaultDeletedProductIds, ...savedDeletedIds])];
     const mergedProducts = mergeCatalogWithDefaults(products, deletedIds);
     applyLegacyAdminFixes(mergedProducts, parsed);
     return {
@@ -695,7 +723,7 @@ function loadCatalog() {
       deletedProductIds: deletedIds
     };
   } catch {
-    return { products: clone(defaultCatalog), deletedProductIds: [] };
+    return { products: clone(defaultCatalog), deletedProductIds: clone(defaultDeletedProductIds) };
   }
 }
 
@@ -854,6 +882,7 @@ function persistCatalog() {
     deletedProductIds,
     updatedAt: new Date().toISOString()
   }));
+  void syncCatalogToLocalProject();
 }
 
 function buildCatalogExportPayload() {
@@ -864,6 +893,70 @@ function buildCatalogExportPayload() {
     products: normalizeCatalog(catalog),
     deletedProductIds
   };
+}
+
+function updateCatalogSyncStatus(message, status = "warn") {
+  const el = getEl("catalogSyncStatus");
+  if (!el) return;
+  el.textContent = message;
+  el.dataset.status = status;
+}
+
+async function syncCatalogToLocalServer(payload) {
+  if (location.protocol === "file:") return false;
+  try {
+    const response = await fetch(CATALOG_SYNC_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+    if (!response.ok) return false;
+    updateCatalogSyncStatus("已同步到本地项目文件。现在可以直接说“更新产品信息”。", "ok");
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+async function writeCatalogFileHandle(payload) {
+  if (!catalogFileHandle) return false;
+  try {
+    const writable = await catalogFileHandle.createWritable();
+    await writable.write(`${JSON.stringify(payload, null, 2)}\n`);
+    await writable.close();
+    updateCatalogSyncStatus("已写入本地 product-catalog.json。现在可以直接说“更新产品信息”。", "ok");
+    return true;
+  } catch {
+    catalogFileHandle = null;
+    updateCatalogSyncStatus("本地文件授权已失效，请重新连接本地同步。", "error");
+    return false;
+  }
+}
+
+async function syncCatalogToLocalProject() {
+  const payload = buildCatalogExportPayload();
+  if (await syncCatalogToLocalServer(payload)) return true;
+  if (await writeCatalogFileHandle(payload)) return true;
+  updateCatalogSyncStatus("本地同步未连接。保存已进入当前浏览器，但还没有写入项目文件。", "warn");
+  return false;
+}
+
+async function connectCatalogFileSync() {
+  if (!window.showSaveFilePicker) {
+    updateCatalogSyncStatus("当前浏览器不支持文件直写，请使用本地同步服务打开页面。", "error");
+    return;
+  }
+  try {
+    catalogFileHandle = await window.showSaveFilePicker({
+      suggestedName: CATALOG_FILE_NAME,
+      types: [{ description: "产品目录 JSON", accept: { "application/json": [".json"] } }]
+    });
+    await writeCatalogFileHandle(buildCatalogExportPayload());
+  } catch (error) {
+    if (error?.name !== "AbortError") {
+      updateCatalogSyncStatus("连接本地同步失败，请重新选择 product-catalog.json。", "error");
+    }
+  }
 }
 
 function showCatalogExportText(jsonText) {
@@ -1897,6 +1990,7 @@ function bindEvents() {
   });
   getEl("addProduct").addEventListener("click", addProduct);
   getEl("deleteProduct").addEventListener("click", deleteCurrentProduct);
+  getEl("connectCatalogFileSync").addEventListener("click", connectCatalogFileSync);
   getEl("exportCatalog").addEventListener("click", exportCatalogJson);
   getEl("copyCatalogJson").addEventListener("click", copyCatalogJson);
   getEl("exportPoster").addEventListener("click", exportPosterImage);
@@ -1904,5 +1998,11 @@ function bindEvents() {
 
 }
 
-bindEvents();
-render();
+async function initApp() {
+  await loadDefaultCatalogFromFile();
+  applyLoadedCatalog(loadCatalog());
+  bindEvents();
+  render();
+}
+
+void initApp();

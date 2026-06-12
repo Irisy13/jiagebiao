@@ -679,8 +679,27 @@ textarea:disabled {
 
 .admin-actions {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
   gap: 10px;
+}
+
+.catalog-sync-status {
+  margin: 10px 0 0;
+  color: #7d5862;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.catalog-sync-status[data-status="ok"] {
+  color: #1f7a4d;
+}
+
+.catalog-sync-status[data-status="warn"] {
+  color: #9b5b16;
+}
+
+.catalog-sync-status[data-status="error"] {
+  color: #b42318;
 }
 
 .catalog-export-panel {
