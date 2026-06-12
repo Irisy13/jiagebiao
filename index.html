@@ -63,7 +63,17 @@
             <div class="admin-actions">
               <button id="addProduct" type="button" class="primary-button">新增产品</button>
               <button id="saveCatalog" type="button" class="primary-button">保存当前编辑</button>
+              <button id="exportCatalog" type="button" class="ghost-button">导出后台数据 JSON</button>
               <button id="deleteProduct" type="button" class="danger-button">删除当前产品</button>
+            </div>
+
+            <div id="catalogExportPanel" class="catalog-export-panel" hidden>
+              <div class="catalog-export-head">
+                <strong>后台数据已生成</strong>
+                <button id="copyCatalogJson" type="button" class="ghost-button">复制数据</button>
+              </div>
+              <textarea id="catalogExportText" readonly></textarea>
+              <p id="catalogExportTip">如果没有自动下载，请点“复制数据”，我可以继续帮你写入程序并上传 GitHub。</p>
             </div>
           </div>
 

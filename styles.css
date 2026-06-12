@@ -679,8 +679,56 @@ textarea:disabled {
 
 .admin-actions {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 10px;
+}
+
+.catalog-export-panel {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+  padding: 12px;
+  border: 1px solid rgba(242, 52, 52, 0.18);
+  border-radius: 10px;
+  background: rgba(255, 248, 242, 0.86);
+}
+
+.catalog-export-panel[hidden] {
+  display: none;
+}
+
+.catalog-export-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  color: #2a1023;
+  font-size: 14px;
+}
+
+.catalog-export-head .ghost-button {
+  min-height: 34px;
+}
+
+#catalogExportText {
+  width: 100%;
+  min-height: 180px;
+  resize: vertical;
+  padding: 12px;
+  border: 1px solid rgba(54, 34, 54, 0.14);
+  border-radius: 8px;
+  background: #fff;
+  color: #2a1023;
+  font-size: 12px;
+  line-height: 1.55;
+  white-space: pre;
+}
+
+#catalogExportTip {
+  margin: 0;
+  color: #7d5862;
+  font-size: 12px;
+  font-weight: 800;
 }
 
 .admin-fieldset {
