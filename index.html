@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>有道领世报价工作台</title>
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles.css?v=20260625-export-subtitle" />
   </head>
   <body>
     <main class="studio-shell">
@@ -178,14 +178,12 @@
 
           <div class="admin-fieldset admin-notes">
             <div class="admin-fieldset-title">
-              <span>说明与赠品</span>
-              <p>对应价格表底部说明区和赠品角标。</p>
+              <span>说明内容</span>
+              <p>仅补充编辑价格表底部说明内容，其他展示文案保持系统统一。</p>
             </div>
-            <div class="editor-grid">
-              <label>课程区标题<input id="editCourseBand" type="text" placeholder="例如：每科课程包含" /></label>
-              <label>说明标签<input id="editNoteLabel" type="text" placeholder="例如：说明" /></label>
-              <label>赠品文案<input id="editGiftText" type="text" placeholder="例如：报名赠送多个礼品" /></label>
-            </div>
+            <input id="editCourseBand" type="hidden" value="每科课程包含" />
+            <input id="editNoteLabel" type="hidden" value="说明" />
+            <input id="editGiftText" type="hidden" value="报名赠送多个礼品" />
             <label class="notes-editor-label">
               说明内容，每行一条
               <textarea id="editNotes" rows="4" placeholder="例如：本页面价格适用于..."></textarea>
@@ -301,6 +299,6 @@
     </main>
 
     <script src="./html2canvas.min.js"></script>
-    <script src="./app.js"></script>
+    <script src="./app.js?v=20260625-export-subtitle"></script>
   </body>
 </html>

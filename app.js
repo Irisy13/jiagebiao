@@ -1,5 +1,5 @@
 const ADMIN_CODE = "lingshi2026";
-const STORAGE_KEY = "youdao-price-catalog-v4";
+const STORAGE_KEY = "youdao-price-catalog-v5";
 const CATALOG_SOURCE_PATH = "./product-catalog.json";
 const CATALOG_SYNC_ENDPOINT = "/api/catalog-sync";
 const CATALOG_FILE_NAME = "product-catalog.json";
@@ -58,6 +58,107 @@ const moduleTemplates = [
 
 let defaultCatalog = [
   {
+    "id": "g1-autumn-shishi",
+    "grade": "高一",
+    "family": "高一秋实卡",
+    "level": "秋季产品",
+    "name": "新高二秋实卡",
+    "subtitle": "秋季",
+    "tag": "非文综",
+    "theme": "peach",
+    "isOnline": true,
+    "nonWenZong": {
+      "officialUnitPrice": 3600,
+      "tiers": {
+        "1": 2780,
+        "2": 2680,
+        "3": 2580
+      }
+    },
+    "wenZong": {
+      "mode": "deal",
+      "officialUnitPrice": 2200,
+      "dealUnitPrice": 900
+    },
+    "content": {
+      "nonWenZong": [
+        {
+          "key": "knowledge",
+          "module": "知识视频",
+          "badge": "精准学",
+          "label": "知识视频",
+          "subtitle": "查缺补漏",
+          "image": "./module-knowledge.png",
+          "hours": "40节/科",
+          "gift": ""
+        },
+        {
+          "key": "live",
+          "module": "学法直播",
+          "badge": "讲到会",
+          "label": "学法直播",
+          "subtitle": "大招提分",
+          "image": "./module-live.png",
+          "hours": "16节/科",
+          "gift": "赠·升高一暑期10节"
+        },
+        {
+          "key": "service",
+          "module": "辅导服务",
+          "badge": "陪伴学",
+          "label": "辅导服务",
+          "subtitle": "伴学提升",
+          "image": "./module-service.png",
+          "hours": "辅导老师服务/科",
+          "gift": ""
+        }
+      ],
+      "wenZong": [
+        {
+          "key": "knowledge",
+          "module": "知识视频",
+          "badge": "精准学",
+          "label": "知识视频",
+          "subtitle": "查缺补漏",
+          "image": "./module-knowledge.png",
+          "hours": "20节/科",
+          "gift": ""
+        },
+        {
+          "key": "live",
+          "module": "学法直播",
+          "badge": "讲到会",
+          "label": "学法直播",
+          "subtitle": "大招提分",
+          "image": "./module-live.png",
+          "hours": "16节/科",
+          "gift": "赠·升高一暑期10节"
+        },
+        {
+          "key": "service",
+          "module": "辅导服务",
+          "badge": "陪伴学",
+          "label": "辅导服务",
+          "subtitle": "伴学提升",
+          "image": "./module-service.png",
+          "hours": "辅导老师服务/科",
+          "gift": ""
+        }
+      ]
+    },
+    "servicePeriod": "2026.9.1-2026.12.31",
+    "notes": [
+      "更多赠礼联系学业规划师了解",
+      "3科及以上为2580/科"
+    ],
+    "display": {
+      "subjectScope": "语数英物化",
+      "courseBandTitle": "每科课程包含",
+      "noteLabel": "说明",
+      "giftText": "报名赠送多个礼品"
+    }
+  },
+  {
     "id": "g1-summer-fall-win",
     "grade": "高一",
     "family": "高一暑秋卡",
@@ -67,16 +168,16 @@ let defaultCatalog = [
     "tag": "非文综",
     "theme": "peach",
     "nonWenZong": {
-      "officialUnitPrice": 6400,
+      "officialUnitPrice": 5400,
       "tiers": {
-        "1": 3880,
-        "2": 3580,
-        "3": 3280
+        "1": 3980,
+        "2": 3680,
+        "3": 3380
       }
     },
     "wenZong": {
       "mode": "deal",
-      "officialUnitPrice": 5000,
+      "officialUnitPrice": 4000,
       "dealUnitPrice": 1900
     },
     "content": {
@@ -147,8 +248,7 @@ let defaultCatalog = [
     },
     "servicePeriod": "2026.7.1-2026.12.31",
     "notes": [
-      "生 史 地 政一口价按¥1,900/科计算。",
-      "更多赠课联系学业规划师"
+      "更多赠礼联系学业规划师了解"
     ],
     "isOnline": true,
     "display": {
@@ -171,15 +271,15 @@ let defaultCatalog = [
     "nonWenZong": {
       "officialUnitPrice": 1800,
       "tiers": {
-        "1": 1399,
-        "2": 1199,
-        "3": 999
+        "1": 1499,
+        "2": 1299,
+        "3": 1099
       }
     },
     "wenZong": {
       "mode": "same",
       "officialUnitPrice": 1800,
-      "dealUnitPrice": 999
+      "dealUnitPrice": 1099
     },
     "content": {
       "nonWenZong": [
@@ -249,11 +349,113 @@ let defaultCatalog = [
     },
     "servicePeriod": "2026.07.01至2026.08.31",
     "notes": [
-      "本页面价格适用于新高一暑研卡（暑期）课程。",
-      "3科及以上统一按¥999/科计算。"
+      "本页面价格适用于新高一夏研卡（暑期）课程。",
+      "三科及以上统一按¥1,099/科计算。",
+      "更多赠礼联系学业规划师了解"
     ],
     "display": {
       "subjectScope": "语数英物化生史地政",
+      "courseBandTitle": "每科课程包含",
+      "noteLabel": "说明",
+      "giftText": "报名赠送多个礼品"
+    }
+  },
+  {
+    "id": "g2-autumn-shishi",
+    "grade": "高二",
+    "family": "高二秋实卡",
+    "level": "秋季产品",
+    "name": "新高二秋实卡",
+    "subtitle": "秋季",
+    "tag": "非文综",
+    "theme": "blue",
+    "isOnline": true,
+    "nonWenZong": {
+      "officialUnitPrice": 3600,
+      "tiers": {
+        "1": 2780,
+        "2": 2680,
+        "3": 2580
+      }
+    },
+    "wenZong": {
+      "mode": "deal",
+      "officialUnitPrice": 2200,
+      "dealUnitPrice": 900
+    },
+    "content": {
+      "nonWenZong": [
+        {
+          "key": "knowledge",
+          "module": "知识视频",
+          "badge": "精准学",
+          "label": "知识视频",
+          "subtitle": "查缺补漏",
+          "image": "./module-knowledge.png",
+          "hours": "40节/科",
+          "gift": ""
+        },
+        {
+          "key": "live",
+          "module": "学法直播",
+          "badge": "讲到会",
+          "label": "学法直播",
+          "subtitle": "大招提分",
+          "image": "./module-live.png",
+          "hours": "16节/科",
+          "gift": "赠·升高二暑期10节"
+        },
+        {
+          "key": "service",
+          "module": "辅导服务",
+          "badge": "陪伴学",
+          "label": "辅导服务",
+          "subtitle": "伴学提升",
+          "image": "./module-service.png",
+          "hours": "辅导老师服务/科",
+          "gift": ""
+        }
+      ],
+      "wenZong": [
+        {
+          "key": "knowledge",
+          "module": "知识视频",
+          "badge": "精准学",
+          "label": "知识视频",
+          "subtitle": "查缺补漏",
+          "image": "./module-knowledge.png",
+          "hours": "20节/科",
+          "gift": ""
+        },
+        {
+          "key": "live",
+          "module": "学法直播",
+          "badge": "讲到会",
+          "label": "学法直播",
+          "subtitle": "大招提分",
+          "image": "./module-live.png",
+          "hours": "16节/科",
+          "gift": ""
+        },
+        {
+          "key": "service",
+          "module": "辅导服务",
+          "badge": "陪伴学",
+          "label": "辅导服务",
+          "subtitle": "伴学提升",
+          "image": "./module-service.png",
+          "hours": "辅导老师服务/科",
+          "gift": ""
+        }
+      ]
+    },
+    "servicePeriod": "2026.9.1-2026.12.31",
+    "notes": [
+      "3科及以上统一按¥2,580/科计算。",
+      "更多赠礼联系学业规划师了解"
+    ],
+    "display": {
+      "subjectScope": "语数英物化",
       "courseBandTitle": "每科课程包含",
       "noteLabel": "说明",
       "giftText": "报名赠送多个礼品"
@@ -271,9 +473,9 @@ let defaultCatalog = [
     "nonWenZong": {
       "officialUnitPrice": 5600,
       "tiers": {
-        "1": 4180,
-        "2": 3980,
-        "3": 3680
+        "1": 4280,
+        "2": 4080,
+        "3": 3780
       }
     },
     "wenZong": {
@@ -349,8 +551,8 @@ let defaultCatalog = [
     },
     "servicePeriod": "2026.7.1-2026.12.31",
     "notes": [
-      "赠送课程联系学业规划师安排学习。",
-      "文综一口价按¥2,300/科计算。"
+      "3科及以上统一按¥3,780/科计算。",
+      "更多赠礼联系学业规划师了解"
     ],
     "isOnline": true,
     "display": {
@@ -373,9 +575,9 @@ let defaultCatalog = [
     "nonWenZong": {
       "officialUnitPrice": 11200,
       "tiers": {
-        "1": 6080,
-        "2": 5780,
-        "3": 5380
+        "1": 6180,
+        "2": 5880,
+        "3": 5480
       }
     },
     "wenZong": {
@@ -457,8 +659,8 @@ let defaultCatalog = [
       "giftText": "报名赠送多个礼品"
     },
     "notes": [
-      "赠送课程联系学业规划师安排学习。",
-      "文综一口价按¥2,990/科计算。"
+      "3科及以上统一按¥5,480/科计算。",
+      "更多赠礼联系学业规划师了解"
     ]
   },
   {
@@ -473,9 +675,9 @@ let defaultCatalog = [
     "nonWenZong": {
       "officialUnitPrice": 5600,
       "tiers": {
-        "1": 5180,
-        "2": 4980,
-        "3": 4680
+        "1": 5280,
+        "2": 5080,
+        "3": 4780
       }
     },
     "wenZong": {
@@ -492,7 +694,7 @@ let defaultCatalog = [
           "label": "知识视频",
           "subtitle": "查缺补漏",
           "image": "./module-knowledge.png",
-          "hours": "60节",
+          "hours": "60节/科",
           "gift": "高二核心知识点汇总30节"
         },
         {
@@ -502,7 +704,7 @@ let defaultCatalog = [
           "label": "学法直播",
           "subtitle": "大招提分",
           "image": "./module-live.png",
-          "hours": "26节",
+          "hours": "26节/科",
           "gift": ""
         },
         {
@@ -524,7 +726,7 @@ let defaultCatalog = [
           "label": "知识视频",
           "subtitle": "查缺补漏",
           "image": "./module-knowledge.png",
-          "hours": "30节",
+          "hours": "30节/科",
           "gift": "高二核心知识点汇总20节"
         },
         {
@@ -534,7 +736,7 @@ let defaultCatalog = [
           "label": "学法直播",
           "subtitle": "大招提分",
           "image": "./module-live.png",
-          "hours": "26节",
+          "hours": "26节/科",
           "gift": ""
         },
         {
@@ -551,8 +753,8 @@ let defaultCatalog = [
     },
     "servicePeriod": "2026-07-01至2026-12-31",
     "notes": [
-      "更多赠送课程资料礼品联系规划师进行学习。",
-      "文综一口价按¥2,700/科计算。"
+      "3科及以上统一按¥4,780/科计算。",
+      "更多赠礼联系学业规划师了解"
     ],
     "isOnline": true,
     "display": {
@@ -574,9 +776,9 @@ let defaultCatalog = [
     "nonWenZong": {
       "officialUnitPrice": 11200,
       "tiers": {
-        "1": 7080,
-        "2": 6780,
-        "3": 6380
+        "1": 7180,
+        "2": 6880,
+        "3": 6480
       }
     },
     "wenZong": {
@@ -652,8 +854,8 @@ let defaultCatalog = [
     },
     "servicePeriod": "2026.7.1-2026.12.31",
     "notes": [
-      "本页面价格适用于新高三全体系直通卡价格体系。",
-      "文综一口价按¥3,390/科计算。"
+      "3科及以上统一按¥6,480/科计算。",
+      "更多赠礼联系学业规划师了解"
     ],
     "isOnline": true,
     "display": {
@@ -1359,7 +1561,7 @@ function renderCourseModules(product, type = activeContentType()) {
       <div class="module-hours">
         ${escapeHtml(item.hours || "按产品配置")}
         ${formatGift(item.gift) ? `<br /><span class="gift-text">${formatGift(item.gift)}</span>` : ""}
-        ${item.key === "service" && product.servicePeriod ? `<br /><span class="service-period">服务期：${escapeHtml(product.servicePeriod)}</span>` : ""}
+        ${item.key === "service" && product.servicePeriod ? `<br /><span class="service-period">${escapeHtml(formatServicePeriod(product.servicePeriod))}</span>` : ""}
       </div>
     </article>
   `).join("");
@@ -1389,6 +1591,16 @@ function hoursPerSubject(hours) {
 
 function cleanServiceHours(hours) {
   return String(hours || "").trim() || "按产品配置";
+}
+
+function formatServicePeriod(period) {
+  const text = String(period || "").trim();
+  if (!text) return "";
+  if (text.startsWith("截止到")) return text;
+  const matches = [...text.matchAll(/(\d{4})[.\-/年](\d{1,2})[.\-/月至](\d{1,2})/g)];
+  const last = matches.at(-1);
+  if (!last) return `截止到${text}`;
+  return `截止到${Number(last[1])}年${Number(last[2])}月${Number(last[3])}号`;
 }
 
 function comboServiceSummary(wen, non, showWen, showNon) {
@@ -1440,7 +1652,7 @@ function renderComboCourseModules(product) {
           ${isService
             ? `<div class="combo-service-line"><strong>辅导服务：</strong><span>${escapeHtml(serviceSummary)}</span></div>`
             : `<strong>${title}：</strong><div class="combo-module-lines">${hoursLines || "<span>按产品配置</span>"}</div>`}
-          ${template.key === "service" && product.servicePeriod ? `<span class="service-period">服务期：${escapeHtml(product.servicePeriod)}</span>` : ""}
+          ${template.key === "service" && product.servicePeriod ? `<span class="service-period">${escapeHtml(formatServicePeriod(product.servicePeriod))}</span>` : ""}
         </div>
       </article>
     `;
@@ -1622,7 +1834,8 @@ function modulesFromEditor(type = "nonWenZong") {
   });
 }
 
-function saveEditor() {
+function saveEditor(options = {}) {
+  const shouldHydrateEditor = options.hydrateEditor !== false;
   const product = adminEditingProduct();
   if (!product || !state.adminUnlocked) return;
   product.name = getEl("editName").value.trim();
@@ -1648,9 +1861,9 @@ function saveEditor() {
   product.content.wenZong = modulesFromEditor("wenZong");
   product.display = {
     subjectScope: getEl("editSubjectScope").value.trim() || product.tag || "非文综",
-    courseBandTitle: getEl("editCourseBand").value.trim() || "每科课程包含",
-    noteLabel: getEl("editNoteLabel").value.trim() || "说明",
-    giftText: getEl("editGiftText").value.trim() || "报名赠送多个礼品"
+    courseBandTitle: "每科课程包含",
+    noteLabel: "说明",
+    giftText: "报名赠送多个礼品"
   };
   product.notes = getEl("editNotes").value.split("\n").map((note) => note.trim()).filter(Boolean);
   catalog = normalizeCatalog(catalog);
@@ -1660,10 +1873,10 @@ function saveEditor() {
     state.selectedProductId = fallback?.id || "";
   }
   persistCatalog();
-  render();
+  render({ hydrateEditor: shouldHydrateEditor });
 }
 
-function render() {
+function render(options = {}) {
   renderGradeCards();
   renderProductSelect();
   renderAdminProductSelect();
@@ -1724,7 +1937,9 @@ function render() {
     renderCourseModules(product);
   }
   renderNotes(output.notes);
-  hydrateEditor(adminEditingProduct());
+  if (options.hydrateEditor !== false) {
+    hydrateEditor(adminEditingProduct());
+  }
 }
 
 async function exportPosterImage() {
@@ -1743,6 +1958,8 @@ async function exportPosterImage() {
     const product = currentProduct();
     const node = getEl("pricePoster");
     await waitForPosterAssets(node);
+    node.classList.add("is-exporting");
+    await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
     const canvas = await window.html2canvas(node, {
       backgroundColor: "#fff4ec",
       scale: 2,
@@ -1787,6 +2004,7 @@ async function exportPosterImage() {
       alert("导出失败：请确认浏览器允许下载文件，或刷新页面后重试。");
     }
   } finally {
+    getEl("pricePoster").classList.remove("is-exporting");
     button.textContent = originalText;
     button.disabled = false;
   }
@@ -1966,8 +2184,12 @@ function bindEvents() {
     const product = catalog.find((item) => item.id === event.target.value);
     if (!product) return;
     state.adminEditingProductId = product.id;
+    state.selectedGrade = product.grade;
+    if (product.isOnline !== false) {
+      state.selectedProductId = product.id;
+    }
     hydrateEditor(product);
-    renderAdminProductSelect();
+    render();
   });
 
   document.querySelectorAll(".range-button").forEach((button) => {
@@ -1983,10 +2205,14 @@ function bindEvents() {
   getEl("adminCode").addEventListener("keydown", (event) => {
     if (event.key === "Enter") unlockAdmin();
   });
-  getEl("saveCatalog").addEventListener("click", saveEditor);
+  getEl("saveCatalog").addEventListener("click", () => saveEditor());
+  getEl("adminEditor").addEventListener("input", (event) => {
+    if (!state.adminUnlocked || event.target.id === "adminProductSelect") return;
+    saveEditor({ hydrateEditor: false });
+  });
   getEl("adminEditor").addEventListener("change", (event) => {
     if (!state.adminUnlocked || event.target.id === "adminProductSelect") return;
-    saveEditor();
+    saveEditor({ hydrateEditor: false });
   });
   getEl("addProduct").addEventListener("click", addProduct);
   getEl("deleteProduct").addEventListener("click", deleteCurrentProduct);
