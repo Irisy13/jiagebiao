@@ -62,7 +62,7 @@ let defaultCatalog = [
     "grade": "高一",
     "family": "高一秋实卡",
     "level": "秋季产品",
-    "name": "新高二秋实卡",
+    "name": "新高一秋实卡",
     "subtitle": "秋季",
     "tag": "非文综",
     "theme": "peach",
@@ -1042,6 +1042,9 @@ function normalizeCatalog(products) {
   return clone(products)
     .map((product) => {
       product.grade = normalizedGrade(product.grade);
+      if (product.id === "g1-autumn-shishi" && product.grade === "高一" && product.name === "新高二秋实卡") {
+        product.name = "新高一秋实卡";
+      }
       product.theme = themeForGrade(product.grade);
       product.isOnline = product.isOnline !== false;
       const display = defaultDisplay(product);
@@ -1420,15 +1423,16 @@ function tableRow(row) {
 }
 
 function cardLabelForProduct(product) {
-  const source = [product.name, product.family, product.subtitle].filter(Boolean).join(" ");
-  const preferred = source.match(/(领航卡|决胜卡|衔接卡|半年卡|一轮卡|暑秋卡|直通卡|全程班)/);
-  if (preferred) return preferred[0];
+  const cardKeywords = ["秋实卡", "夏研卡", "领航卡", "决胜卡", "衔接卡", "半年卡", "一轮卡", "暑秋卡", "直通卡", "全程班"];
+  const sources = [product.name, product.family, product.subtitle].filter(Boolean);
+  for (const source of sources) {
+    const keyword = cardKeywords.find((item) => source.includes(item));
+    if (keyword) return keyword;
+  }
+  const source = sources.join(" ");
   const matches = source.match(/[\u4e00-\u9fa5A-Za-z0-9]{1,8}[卡班]/g);
   if (!matches?.length) return "直通卡";
-  const label = matches[0];
-  if (label.length <= 4) return label;
-  const shortMatch = label.match(/[\u4e00-\u9fa5A-Za-z0-9]{2,4}[卡班]$/);
-  return shortMatch ? shortMatch[0] : label;
+  return matches[0].replace(/^.*?([\u4e00-\u9fa5A-Za-z0-9]{2,4}[卡班])$/, "$1");
 }
 
 function renderTable(rows) {
